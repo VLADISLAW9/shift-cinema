@@ -13,7 +13,8 @@
       "@ui/*": ["src/shared/ui/*"],
       "@lib/*": ["src/shared/lib/*"],
       "@hooks/*": ["src/shared/lib/hooks/"],
-      "@images/*": ["/src/shared/assets/images"]
+      "@images/*": ["/src/shared/assets/images"],
+      "@icons/*": ["/src/shared/assets/icons"]
     },
 
     /* Bundler mode */

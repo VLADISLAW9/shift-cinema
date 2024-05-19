@@ -19,7 +19,8 @@ export default defineConfig({
       '@ui': path.resolve(__dirname, './src/shared/ui'),
       '@lib': path.resolve(__dirname, './src/shared/lib'),
       '@hooks': path.resolve(__dirname, './src/shared/lib/hooks'),
-      '@images': path.resolve(__dirname, './src/shared/assets/images')
+      '@images': path.resolve(__dirname, './src/shared/assets/images'),
+      '@icons': path.resolve(__dirname, './src/shared/assets/icons')
     }
   }
 });

@@ -1,7 +1,15 @@
 .link {
-	color: var(--text-redesigned);
+	color: #344051;
 
 	&:hover {
-			color: var(--accent-redesigned);
+			color: #141C24;
+	}
+
+	&:focus {
+			color: #344051;
+	}
+
+	&:disabled {
+			color: #637083;
 	}
 }

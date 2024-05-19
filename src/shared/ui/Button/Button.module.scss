@@ -1,0 +1,79 @@
+.button {
+	display: flex;
+	align-items: center;
+	padding: 16px 32px;
+	border-radius: 12px;
+}
+
+.with_addon {
+	padding: 0 32px;
+}
+
+.addon_left, .addon_right {
+	display: flex;
+}
+
+.addon_right svg, .addon_left svg {
+	color: var(--hint-redesigned);
+}
+
+
+.primary_filled {
+	background:#1975FF;
+	color: #fff;
+	
+	&:hover {
+		background: #0052CC;
+	}
+
+	&:focus {
+		border:2px solid #CCE0FF;
+	}
+
+	&:disabled {
+		background: #CCE0FF;
+	}
+}
+
+.default_filled {
+	border: 1px solid #CED2DA;
+	color:#344051;
+
+	&:hover {
+		background: #F9FAFB;
+	}
+
+	&:disabled {
+		border: 1px solid #E3E5E5;
+		color: #637083;
+	}
+}
+
+.primary_text {
+	color: #1975FF;
+	
+	&:hover {
+		background: #F0F6FF;
+	}
+
+	&:focus {
+		border:2px solid #CCE0FF;
+	}
+
+	&:disabled {
+		border:2px solid #CCE0FF;
+		color: #CCE0FF;
+	}
+}
+
+.default_text {
+	color:#344051;
+
+	&:hover {
+		background: #F9FAFB;
+	}
+
+	&:disabled {
+		color: #637083;
+	}
+}

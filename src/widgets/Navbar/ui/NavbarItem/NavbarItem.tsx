@@ -1,5 +1,6 @@
 import { memo } from 'react';
-import { Link } from '@ui/Link/Link';
+import { Link } from '@ui/Link';
+import { Typography } from '@ui/Typography';
 
 import type { NavbarItem as NavbarItemType } from '../../model/types/NavbarItem';
 
@@ -16,7 +17,7 @@ export const NavbarItem = memo(({ item }: NavbarItemProps) => {
 
   return (
     <Link to={item.path}>
-      <span>{item.text}</span>
+      <Typography variant='typography16_medium'>{item.text}</Typography>
     </Link>
   );
 });

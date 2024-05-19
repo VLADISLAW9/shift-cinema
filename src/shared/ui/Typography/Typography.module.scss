@@ -1,100 +1,114 @@
-.title {
-  font-size: 24px;
-  font-weight: 700;
-  line-height: 32px;
+:root {
+  --font-family-main: consolas, "Inter", serif;
 }
 
-.paragraph24_regular {
+.typography24_regular {
+  font-family: var(--font-family-main);
   font-size: 24px;
   font-weight: 400;
   line-height: 32px;
 }
 
-.paragraph20_regular {
+.typography20_regular {
+  font-family: var(--font-family-main);
   font-size: 20px;
   font-weight: 400;
   line-height: 24px;
 }
 
-.paragraph16_regular {
+.typography16_regular {
+  font-family: var(--font-family-main);
   font-size: 16px;
   font-weight: 400;
   line-height: 24px;
 }
 
-.paragraph14_regular {
+.typography14_regular {
+  font-family: var(--font-family-main);
   font-size: 14px;
   font-weight: 400;
   line-height: 20px;
 }
 
-.paragraph24_medium {
+.typography24_medium {
+  font-family: var(--font-family-main);
   font-size: 24px;
   font-weight: 500;
   line-height: 32px;
 }
 
-.paragraph20_medium {
+.typography20_medium {
+  font-family: var(--font-family-main);
   font-size: 20px;
   font-weight: 500;
   line-height: 24px;
 }
 
-.paragraph16_medium {
+.typography16_medium {
+  font-family: var(--font-family-main);
   font-size: 16px;
   font-weight: 500;
   line-height: 24px;
 }
 
-.paragraph14_medium {
+.typography14_medium {
+  font-family: var(--font-family-main);
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
 }
 
-.paragraph24_semibold {
+.typography24_semibold {
+  font-family: var(--font-family-main);
   font-size: 24px;
   font-weight: 600;
   line-height: 32px;
 }
 
-.paragraph20_semibold {
+.typography20_semibold {
+  font-family: var(--font-family-main);
   font-size: 20px;
   font-weight: 600;
   line-height: 24px;
 }
 
-.paragraph16_semibold {
+.typography16_semibold {
+  font-family: var(--font-family-main);
   font-size: 16px;
   font-weight: 600;
   line-height: 24px;
 }
 
-.paragraph14_semibold {
+.typography14_semibold {
+  font-family: var(--font-family-main);
   font-size: 14px;
   font-weight: 600;
   line-height: 20px;
 }
 
-.paragraph24_bold {
+.typography24_bold {
+  font-family: var(--font-family-main);
   font-size: 24px;
   font-weight: 700;
   line-height: 32px;
 }
 
-.paragraph20_bold {
+.typography20_bold {
+  font-family: var(--font-family-main);
   font-size: 20px;
   font-weight: 700;
   line-height: 24px;
 }
 
-.paragraph16_bold {
+.typography16_bold {
+  font-family: var(--font-family-main);
   font-size: 16px;
   font-weight: 700;
   line-height: 24px;
 }
 
-.paragraph14_bold {
+.typography14_bold {
+  font-family: var(--font-family-main);
   font-size: 14px;
   font-weight: 700;
   line-height: 20px;
