@@ -14,7 +14,7 @@
       "@lib/*": ["src/shared/lib/*"],
       "@hooks/*": ["src/shared/lib/hooks/"],
       "@images/*": ["/src/shared/assets/images"],
-      "@icons/*": ["/src/shared/assets/icons"]
+      "@icons/*": ["/src/shared/assets/icons"],
     },
 
     /* Bundler mode */

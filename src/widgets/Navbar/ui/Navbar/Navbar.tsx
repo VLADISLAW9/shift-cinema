@@ -3,6 +3,7 @@ import { AppLogo } from '@ui/AppLogo';
 import { HStack } from '@ui/Stack';
 
 import { LogOutButton } from '@/features/LogOutButton/ui/LogOutButton';
+import { SignInButton } from '@/features/SingIn';
 
 import { useNavbarItems } from '../../model/selectors/useNavbarItems';
 import { NavbarItem } from '../NavbarItem/NavbarItem';
@@ -10,7 +11,7 @@ import { NavbarItem } from '../NavbarItem/NavbarItem';
 import cls from './Navbar.module.scss';
 
 export const Navbar = memo(() => {
-  const authData = true;
+  const authData = false;
   const navbarItemList = useNavbarItems();
 
   const itemsList = useMemo(
@@ -20,14 +21,16 @@ export const Navbar = memo(() => {
 
   return (
     <HStack justify='between' align='center' gap='32' className={cls.navbar}>
-      <AppLogo className={cls.appLogo} />
-      {authData && (
+      <AppLogo clickable className={cls.appLogo} />
+      {authData ? (
         <>
           <HStack className={cls.links} gap='32'>
             {itemsList}
           </HStack>
           <LogOutButton />
         </>
+      ) : (
+        <SignInButton />
       )}
     </HStack>
   );

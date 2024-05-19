@@ -1,5 +1,5 @@
 import { memo } from 'react';
-import LogOutIcon from '@icons/LogOutIcon.svg';
+import LogOutIcon from '@icons/AuthIcon.svg';
 import { Icon } from '@ui/Icon';
 import { Link } from '@ui/Link';
 import { Typography } from '@ui/Typography';

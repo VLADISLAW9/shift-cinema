@@ -1,18 +1,20 @@
+import { getRouteProfile, getRouteTickets } from '@/shared/consts/router';
+
 import type { NavbarItem } from '../types/NavbarItem';
 
 export const useNavbarItems = () => {
-  const userData = true;
+  const userData = false;
   const navbarItemsList: NavbarItem[] = [];
 
   if (userData) {
     navbarItemsList.push(
       {
-        path: '/page',
+        path: getRouteProfile(':id'),
         text: 'Профиль',
         authOnly: true
       },
       {
-        path: '/home',
+        path: getRouteTickets(),
         text: 'Билеты',
         authOnly: true
       }
