@@ -1,0 +1,46 @@
+.input_wrapper {
+	display: flex;
+	width: 100%;
+	align-items: center;
+	padding: 12px;
+	border: 1px solid #97A1AF;
+	border-radius: 8px;
+	transition: all 0.2s ease-out;
+
+	&:hover {
+		border: 1px solid #CED2DA;
+	}
+}
+
+.focused {
+	border: 1px solid #4C94FF;
+}
+
+.input {
+	width: 100%;
+	border: none;
+	background: none;
+	color: #141C24;
+	outline: none;
+
+	&::placeholder {
+		 color: #637083;
+		}
+
+	&:disabled {
+		background:#F3F4F6 ;
+		color: #637083;
+	}
+}
+
+.error {
+
+  & input {
+    border: 1px solid;
+    border-color: #F64C4C;
+  }
+
+  & p {
+    color: #F64C4C;
+  }
+}

@@ -58,7 +58,7 @@ export const Button = forwardRef((props: ButtonProps, ref: ForwardedRef<HTMLButt
   return (
     <button
       type='button'
-      className={classNames(cls.Button, mods, [className, cls[variant], cls[size]])}
+      className={classNames(cls.button, mods, [className, cls[variant], cls[size]])}
       disabled={disabled}
       {...otherProps}
       ref={ref}
