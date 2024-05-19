@@ -1,0 +1,23 @@
+:root {
+	--font-family-main: consolas, "Inter", serif;
+
+	// S
+	--font-size-s: 14px;
+	--font-line-s: 20px;
+	--font-s: var(--font-size-s) / var(--font-line-s) var(--font-family-main);
+
+	// M
+	--font-size-m: 16px;
+	--font-line-m: 24px;
+	--font-s: var(--font-size-s) / var(--font-line-s) var(--font-family-main);
+
+	// L
+	--font-size-l: 20px;
+	--font-line-l: 24px;
+	--font-s: var(--font-size-s) / var(--font-line-s) var(--font-family-main);
+
+	// XL
+	--font-size-xl: 24px;
+	--font-line-xl: 32px;
+	--font-s: var(--font-size-s) / var(--font-line-s) var(--font-family-main);
+}

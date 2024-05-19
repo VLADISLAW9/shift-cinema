@@ -1,0 +1,68 @@
+{
+  "name": "shift-cinema",
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint:ts": "eslint \"./src/**/*.{ts,tsx}\"",
+    "lint:ts:fix": "eslint \"**/*.{ts,tsx}\" --fix",
+    "lint:scss": "npx stylelint \"**/*.scss\"",
+    "lint:scss:fix": "npx stylelint \"**/*.scss\" --fix",
+    "prettier": "npx prettier --write **/*.{ts,tsx,json,cjs}",
+    "preview": "vite preview",
+    "prepare": "husky",
+    "storybook": "start-storybook -p 6006 -c ./configs/storybook",
+    "storybook:build": "build-storybook -c ./configs/storybook"
+  },
+  "lint-staged": {
+    "*.scss": [
+      "lint:scss:fix"
+    ],
+    "*.{ts, tsx}": [
+      "prettier",
+      "lint:ts:fix"
+    ]
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-router-dom": "^6.23.1"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^1.4.0",
+    "@feature-sliced/eslint-config": "^0.1.1",
+    "@storybook/addon-essentials": "^8.1.1",
+    "@storybook/addon-interactions": "^8.1.1",
+    "@storybook/addon-links": "^8.1.1",
+    "@storybook/addon-onboarding": "^8.1.1",
+    "@storybook/blocks": "^8.1.1",
+    "@storybook/react": "^8.1.1",
+    "@storybook/react-vite": "^8.1.1",
+    "@storybook/test": "^8.1.1",
+    "@types/node": "^20.12.12",
+    "@types/react": "^18.2.66",
+    "@types/react-dom": "^18.2.22",
+    "@types/react-router-dom": "^5.3.3",
+    "@typescript-eslint/eslint-plugin": "^7.2.0",
+    "@typescript-eslint/parser": "^7.2.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "@vladislaw9/eslint": "^1.0.0",
+    "@vladislaw9/prettier": "^1.0.1",
+    "@vladislaw9/stylelint": "^1.0.0",
+    "eslint": "^8.57.0",
+    "eslint-plugin-boundaries": "^4.2.1",
+    "eslint-plugin-import": "^2.29.1",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.6",
+    "eslint-plugin-storybook": "^0.8.0",
+    "husky": "^9.0.11",
+    "lint-staged": "^15.2.2",
+    "prettier": "^3.2.5",
+    "sass": "^1.77.2",
+    "storybook": "^8.1.1",
+    "typescript": "^5.2.2",
+    "vite": "^5.2.0",
+    "vite-plugin-svgr": "^4.2.0"
+  }
+}
