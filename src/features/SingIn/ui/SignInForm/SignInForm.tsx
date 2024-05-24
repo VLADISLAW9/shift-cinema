@@ -6,6 +6,9 @@ import { Button } from '@ui/Button/Button';
 import { Input } from '@ui/Input';
 import { Typography } from '@ui/Typography';
 
+import { useUserStore } from '@/entities/User/model/store/useUserStore';
+import { USER_LOCALSTORAGE_KEY } from '@/shared/consts/localstorage';
+
 import { useCreateOtpCode } from '../../api/useCreateOtpCode';
 import { useSignIn } from '../../api/useSignIn';
 import type { SignInStages } from '../../model/lib/consts/SignInStages';
@@ -21,6 +24,8 @@ interface SignInFormProps {
 
 export const SignInForm = memo((props: SignInFormProps) => {
   const { className } = props;
+
+  const initUser = useUserStore((state) => state.initUser);
 
   const createOtpCode = useCreateOtpCode();
   const signIn = useSignIn();
@@ -46,6 +51,9 @@ export const SignInForm = memo((props: SignInFormProps) => {
       if (!signInResponse.data.success && signInResponse.data.reason) {
         return authForm.setError('otpCode', { message: signInResponse.data.reason });
       }
+
+      localStorage.setItem(USER_LOCALSTORAGE_KEY, signInResponse.data.token);
+      initUser(signInResponse.data.user);
     }
   };
 
