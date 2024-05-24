@@ -1,3 +1,7 @@
+declare module '*.{ts,tsx}' {
+  import 'vite/client';
+}
+
 declare module '*.scss' {
   interface IClassNames {
     [className: string]: string;

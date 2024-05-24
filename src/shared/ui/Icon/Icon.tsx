@@ -8,7 +8,7 @@ type SvgProps = Omit<React.SVGProps<SVGSVGElement>, 'onClick'>;
 
 interface IconBaseProps extends SvgProps {
   className?: string;
-  Svg: React.VFC<React.SVGProps<SVGSVGElement>>;
+  Svg: React.VFC<React.SVGProps<SVGSVGElement>> | string;
 }
 
 interface NonClickableIconProps extends IconBaseProps {

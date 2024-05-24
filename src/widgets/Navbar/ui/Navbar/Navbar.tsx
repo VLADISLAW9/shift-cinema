@@ -1,9 +1,12 @@
 import { memo, useMemo } from 'react';
+import DoorIcon from '@icons/DoorIcon.svg';
 import { AppLogo } from '@ui/AppLogo';
 import { HStack } from '@ui/Stack';
 
-import { LogOutButton } from '@/features/LogOutButton/ui/LogOutButton';
-import { SignInButton } from '@/features/SingIn';
+import { getRouteAuth } from '@/shared/consts/router';
+import { Icon } from '@/shared/ui/Icon';
+import { Link } from '@/shared/ui/Link';
+import { Typography } from '@/shared/ui/Typography';
 
 import { useNavbarItems } from '../../model/selectors/useNavbarItems';
 import { NavbarItem } from '../NavbarItem/NavbarItem';
@@ -27,10 +30,16 @@ export const Navbar = memo(() => {
           <HStack className={cls.links} gap='32'>
             {itemsList}
           </HStack>
-          <LogOutButton />
+          <Link to='/' className={cls.log_out_button}>
+            <Icon width='18' height='18' Svg={DoorIcon} />
+            <Typography variant='typography16_medium'>Выйти</Typography>
+          </Link>
         </>
       ) : (
-        <SignInButton />
+        <Link to={getRouteAuth()} className={cls.sign_in_button}>
+          <Icon width='18' height='18' Svg={DoorIcon} />
+          <Typography variant='typography16_medium'>Войти</Typography>
+        </Link>
       )}
     </HStack>
   );

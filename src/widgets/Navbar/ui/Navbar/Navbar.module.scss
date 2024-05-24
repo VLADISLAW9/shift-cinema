@@ -1,3 +1,9 @@
 .links {
 	flex: 1;
 }
+
+.log_out_button, .sign_in_button {
+	display: flex;
+	align-items: center;
+	gap: 16px;
+}
