@@ -23,10 +23,6 @@ export const useInitAuthDataQuery = () =>
 
       const response = await $api.get<InitAuthDataResponseSchema>('/users/session');
 
-      return {
-        user: response.data.user,
-        status: response.data.success,
-        reason: response.data.reason
-      };
+      return response.data;
     }
   });

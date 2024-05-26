@@ -13,6 +13,7 @@ export default defineConfig({
       include: '**/*.svg'
     })
   ],
+  publicDir: path.resolve(__dirname, './src/shared/assets'),
   resolve: {
     alias: {
       '@': path.resolve(__dirname, './src'),

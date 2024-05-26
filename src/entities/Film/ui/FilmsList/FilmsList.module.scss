@@ -1,0 +1,6 @@
+.film_list {
+	display: grid;
+	gap: 32px;
+  grid-template-columns: max-content 1fr 300px;
+  grid-template-rows: max-content auto 300px;
+}
