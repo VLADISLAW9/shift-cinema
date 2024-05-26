@@ -3,7 +3,7 @@ import { useMutation } from '@tanstack/react-query';
 import type { User } from '@/entities/User';
 import { $api } from '@/shared/api/api';
 
-interface SignInResponse {
+interface SignInResponseSchema {
   success: boolean;
   reason: string;
   user: User;
@@ -15,9 +15,9 @@ interface SignInRequestBody {
   code: number;
 }
 
-export const useSignIn = () =>
+export const useSignInMutation = () =>
   useMutation({
     mutationFn: ({ phone, code }: SignInRequestBody) => {
-      return $api.post<SignInResponse>('/users/signin', { phone, code });
+      return $api.post<SignInResponseSchema>('/users/signin', { phone, code });
     }
   });

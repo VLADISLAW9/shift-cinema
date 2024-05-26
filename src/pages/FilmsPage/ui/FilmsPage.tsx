@@ -1,5 +1,6 @@
 import { memo } from 'react';
 
+import { useUserStore } from '@/entities/User/model/store/useUserStore';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 interface FilmsPageProps {
@@ -8,5 +9,7 @@ interface FilmsPageProps {
 
 export const FilmsPage = memo((props: FilmsPageProps) => {
   const { className } = props;
-  return <div className={classNames('', {}, [className])}>FilmsPage</div>;
+  const user = useUserStore((state) => state.user);
+
+  return <div className={classNames('', {}, [className])}>{user?.phone}</div>;
 });

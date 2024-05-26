@@ -12,7 +12,7 @@ interface CreateOtpCodeRequestBody {
   phone: string;
 }
 
-export const useCreateOtpCode = () =>
+export const useCreateOtpCodeMutation = () =>
   useMutation({
     mutationFn: ({ phone }: CreateOtpCodeRequestBody) =>
       $api.post<CreateOtpCodeResponse>('/auth/otp', { phone })

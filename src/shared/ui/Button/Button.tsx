@@ -6,7 +6,12 @@ import { classNames } from '@/shared/lib/classNames/classNames';
 
 import cls from './Button.module.scss';
 
-export type ButtonVariant = 'primary_filled' | 'default_filled' | 'primary_text' | 'default_text';
+export type ButtonVariant =
+  | 'primary_filled'
+  | 'default_filled'
+  | 'primary_text'
+  | 'default_text'
+  | 'clear';
 export type ButtonSize = 'm' | 'l';
 
 interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -31,9 +36,6 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
    * Увеличивает кнопку на всю свободную ширину
    */
   fullWidth?: boolean;
-
-  addonLeft?: ReactNode;
-  addonRight?: ReactNode;
 }
 
 export const Button = forwardRef((props: ButtonProps, ref: ForwardedRef<HTMLButtonElement>) => {
@@ -44,15 +46,13 @@ export const Button = forwardRef((props: ButtonProps, ref: ForwardedRef<HTMLButt
     disabled,
     fullWidth,
     size = 'm',
-    addonLeft,
-    addonRight,
+
     ...otherProps
   } = props;
 
   const mods: Mods = {
     [cls.disabled]: disabled,
-    [cls.fullWidth]: fullWidth,
-    [cls.withAddon]: Boolean(addonLeft) || Boolean(addonRight)
+    [cls.fullWidth]: fullWidth
   };
 
   return (
@@ -63,9 +63,7 @@ export const Button = forwardRef((props: ButtonProps, ref: ForwardedRef<HTMLButt
       {...otherProps}
       ref={ref}
     >
-      <div className={cls.addonLeft}>{addonLeft}</div>
       {children}
-      <div className={cls.addonRight}>{addonRight}</div>
     </button>
   );
 });

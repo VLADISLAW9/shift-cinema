@@ -1,6 +1,7 @@
 import { memo, useState } from 'react';
 import { Controller } from 'react-hook-form';
 import { PatternFormat } from 'react-number-format';
+import { useNavigate } from 'react-router-dom';
 import { classNames } from '@lib/classNames/classNames';
 import { Button } from '@ui/Button/Button';
 import { Input } from '@ui/Input';
@@ -8,13 +9,15 @@ import { Typography } from '@ui/Typography';
 
 import { useUserStore } from '@/entities/User/model/store/useUserStore';
 import { USER_LOCALSTORAGE_KEY } from '@/shared/consts/localstorage';
+import { getRouteFilms } from '@/shared/consts/router';
 
-import { useCreateOtpCode } from '../../api/useCreateOtpCode';
-import { useSignIn } from '../../api/useSignIn';
+import { useCreateOtpCodeMutation } from '../../api/useCreateOtpCodeMutation';
+import { useSignInMutation } from '../../api/useSignInMutation';
 import type { SignInStages } from '../../model/lib/consts/SignInStages';
 import { useAuthForm } from '../../model/lib/hooks/useAuthForm';
 import type { OtpCodeSchema } from '../../model/lib/schemas/OtpCodeSchema';
 import type { PhoneNumberSchema } from '../../model/lib/schemas/PhoneNumberSchema';
+import { CountDownButton } from '../CountDownButton/CountDownButton';
 
 import cls from './SignInForm.module.scss';
 
@@ -24,36 +27,63 @@ interface SignInFormProps {
 
 export const SignInForm = memo((props: SignInFormProps) => {
   const { className } = props;
+  const navigate = useNavigate();
 
   const initUser = useUserStore((state) => state.initUser);
 
-  const createOtpCode = useCreateOtpCode();
-  const signIn = useSignIn();
+  const createOtpCodeMutation = useCreateOtpCodeMutation();
+  const signInMutation = useSignInMutation();
+
+  const [submittedPhones, setSubmittedPhones] = useState<{
+    [key: string]: number;
+  }>({});
 
   const [authStage, setAuthStage] = useState<SignInStages>('PHONE');
   const authForm = useAuthForm(authStage);
 
+  const isSubmitting = createOtpCodeMutation.isPending || signInMutation.isPending;
+
   const isPhoneNumberStage = authStage === 'PHONE';
   const isOtpStage = authStage === 'OTP';
 
-  const onSubmit = async (data: PhoneNumberSchema | OtpCodeSchema) => {
+  const currentPhone = authForm.watch('phone');
+
+  const handleCreateOtpCode = async (data?: PhoneNumberSchema) => {
+    const phone = data?.phone || currentPhone;
+    const createOtpCodeResponse = await createOtpCodeMutation.mutateAsync({ phone });
+
+    setSubmittedPhones({
+      ...submittedPhones,
+      [phone]: Date.now() + createOtpCodeResponse.data.retryDelay
+    });
+
+    setAuthStage('OTP');
+  };
+
+  const handleSignIn = async (data: OtpCodeSchema) => {
+    const formData = data;
+    const signInResponse = await signInMutation.mutateAsync({
+      phone: currentPhone,
+      code: formData.otpCode
+    });
+
+    if (!signInResponse.data.success && signInResponse.data.reason) {
+      return authForm.setError('otpCode', { message: signInResponse.data.reason });
+    }
+
+    localStorage.setItem(USER_LOCALSTORAGE_KEY, signInResponse.data.token);
+    initUser(signInResponse.data.user);
+
+    navigate(getRouteFilms());
+  };
+
+  const onSubmit = (data: PhoneNumberSchema | OtpCodeSchema) => {
     if (isPhoneNumberStage) {
-      const formData = data as PhoneNumberSchema;
-      await createOtpCode.mutateAsync({ phone: formData.phone });
-      setAuthStage('OTP');
+      handleCreateOtpCode(data as PhoneNumberSchema);
     }
 
     if (isOtpStage) {
-      const phone = authForm.watch('phone');
-      const formData = data as OtpCodeSchema;
-      const signInResponse = await signIn.mutateAsync({ phone, code: formData.otpCode });
-
-      if (!signInResponse.data.success && signInResponse.data.reason) {
-        return authForm.setError('otpCode', { message: signInResponse.data.reason });
-      }
-
-      localStorage.setItem(USER_LOCALSTORAGE_KEY, signInResponse.data.token);
-      initUser(signInResponse.data.user);
+      handleSignIn(data as OtpCodeSchema);
     }
   };
 
@@ -97,15 +127,22 @@ export const SignInForm = memo((props: SignInFormProps) => {
         />
       )}
       <Button
-        disabled={createOtpCode.isPending || signIn.isPending}
+        disabled={isSubmitting}
         type='submit'
         className={cls.continue_button}
         variant='primary_filled'
       >
         <Typography variant='typography16_semibold'>
-          {createOtpCode.isPending || signIn.isPending ? 'Загрузка...' : 'Продолжить'}
+          {isSubmitting ? 'Загрузка...' : 'Продолжить'}
         </Typography>
       </Button>
+      {isOtpStage && (
+        <CountDownButton
+          endTime={submittedPhones[currentPhone]}
+          loading={isSubmitting}
+          onRetrySendOtpCode={handleCreateOtpCode}
+        />
+      )}
     </form>
   );
 });
