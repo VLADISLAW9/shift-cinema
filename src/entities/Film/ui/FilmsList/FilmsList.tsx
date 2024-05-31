@@ -3,7 +3,7 @@ import { memo } from 'react';
 import { classNames } from '@/shared/lib/classNames/classNames';
 
 import { useCinemaTodayQuery } from '../../api/useCinemaTodayQuery';
-import { FilmCard } from '../FilmCard/FilmCard';
+import { FilmListItem } from '../FilmListItem/FilmListItem';
 
 import cls from './FilmsList.module.scss';
 
@@ -24,7 +24,7 @@ export const FilmsList = memo((props: FilmsListProps) => {
   return (
     <div className={classNames(cls.film_list, {}, [className])}>
       {films.map((film) => (
-        <FilmCard key={film.id} film={film} />
+        <FilmListItem key={film.id} film={film} />
       ))}
     </div>
   );

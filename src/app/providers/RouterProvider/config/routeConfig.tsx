@@ -1,4 +1,5 @@
 import { AuthPage } from '@/pages/AuthPage';
+import { FilmDetailsPage } from '@/pages/FilmDetailsPage';
 import { FilmsPage } from '@/pages/FilmsPage';
 import {
   AppRoutes,
@@ -23,8 +24,7 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   },
   [AppRoutes.FILM_DETAILS]: {
     path: getRouteFilmDetails(':id'),
-    element: <div />,
-    authOnly: true
+    element: <FilmDetailsPage />
   },
   [AppRoutes.PAYMENT]: {
     path: getRoutePayment(),

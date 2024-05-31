@@ -1,29 +1,29 @@
 import { memo } from 'react';
 import { classNames } from '@lib/classNames/classNames';
-import { AppImage } from '@ui/AppImage/AppImage';
 import { Button } from '@ui/Button/Button';
 import { VStack } from '@ui/Stack';
 import { Typography } from '@ui/Typography';
 
 import { FilmUserRatingStack } from '@/entities/FilmUserRating';
+import { getRouteFilmDetails } from '@/shared/consts/router';
+import { Link } from '@/shared/ui/Link';
 
 import type { Film } from '../../model/types/film';
+import { FilmImage } from '../FilmImage/FilmImage';
 
-import cls from './FilmCard.module.scss';
+import cls from './FilmListItem.module.scss';
 
-interface FilmCardProps {
+interface FilmListItemProps {
   className?: string;
   film: Film;
 }
 
-export const FilmCard = memo((props: FilmCardProps) => {
+export const FilmListItem = memo((props: FilmListItemProps) => {
   const { className, film } = props;
 
-  const filmImagePath = `${film.img.split('/').slice(2).join('/')}`;
-
   return (
-    <VStack gap='16' className={classNames(cls.FilmCard, {}, [className])}>
-      <AppImage className={cls.film_img} src={filmImagePath} />
+    <VStack gap='16' className={classNames(cls.FilmListItem, {}, [className])}>
+      <FilmImage film={film} />
       <VStack gap='4'>
         <Typography tag='h3' variant='typography20_semibold'>
           {film.name}
@@ -33,11 +33,13 @@ export const FilmCard = memo((props: FilmCardProps) => {
         </Typography>
       </VStack>
       <FilmUserRatingStack size={20} rate={film.userRatings} />
-      <Button size='l' className={cls.more_info_button}>
-        <Typography tag='h3' variant='typography16_semibold'>
-          Подробнее
-        </Typography>
-      </Button>
+      <Link to={getRouteFilmDetails(film.id)}>
+        <Button size='l' className={cls.more_info_button}>
+          <Typography tag='h3' variant='typography16_semibold'>
+            Подробнее
+          </Typography>
+        </Button>
+      </Link>
     </VStack>
   );
 });

@@ -29,7 +29,8 @@ export const App = () => {
 
   return (
     <div id='app' className={classNames('app', {}, [])}>
-      <Suspense fallback=''>
+      {/* TODO: Сделать AppLoader скелетон */}
+      <Suspense fallback='Laoding...'>
         <DesktopLayouts content={<AppRouter />} header={<Navbar />} />
       </Suspense>
     </div>

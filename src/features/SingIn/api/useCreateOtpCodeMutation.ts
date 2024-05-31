@@ -2,7 +2,7 @@ import { useMutation } from '@tanstack/react-query';
 
 import { $api } from '@/shared/api/api';
 
-interface CreateOtpCodeResponse {
+interface CreateOtpCodeResponseSchema {
   success: boolean;
   reason: string;
   retryDelay: number;
@@ -15,5 +15,5 @@ interface CreateOtpCodeRequestBody {
 export const useCreateOtpCodeMutation = () =>
   useMutation({
     mutationFn: ({ phone }: CreateOtpCodeRequestBody) =>
-      $api.post<CreateOtpCodeResponse>('/auth/otp', { phone })
+      $api.post<CreateOtpCodeResponseSchema>('/auth/otp', { phone })
   });

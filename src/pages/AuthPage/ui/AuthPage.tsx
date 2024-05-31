@@ -9,7 +9,7 @@ interface AuthPageProps {
   className?: string;
 }
 
-export const AuthPage = memo((props: AuthPageProps) => {
+const AuthPage = (props: AuthPageProps) => {
   const { className } = props;
   return (
     <VStack gap='24' className={classNames('', {}, [className])}>
@@ -19,4 +19,6 @@ export const AuthPage = memo((props: AuthPageProps) => {
       <SignInForm />
     </VStack>
   );
-});
+};
+
+export default memo(AuthPage);

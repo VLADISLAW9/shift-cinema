@@ -11,7 +11,7 @@ interface FilmsPageProps {
   className?: string;
 }
 
-export const FilmsPage = memo((props: FilmsPageProps) => {
+const FilmsPage = (props: FilmsPageProps) => {
   const { className } = props;
 
   return (
@@ -22,4 +22,6 @@ export const FilmsPage = memo((props: FilmsPageProps) => {
       <FilmsList />
     </VStack>
   );
-});
+};
+
+export default memo(FilmsPage);

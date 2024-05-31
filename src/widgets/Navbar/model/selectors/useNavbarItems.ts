@@ -1,12 +1,13 @@
+import { useUserStore } from '@/entities/User/model/store/useUserStore';
 import { getRouteProfile, getRouteTickets } from '@/shared/consts/router';
 
 import type { NavbarItem } from '../types/NavbarItem';
 
 export const useNavbarItems = () => {
-  const userData = false;
+  const isLoggedIn = useUserStore((state) => state.isLoggedIn);
   const navbarItemsList: NavbarItem[] = [];
 
-  if (userData) {
+  if (isLoggedIn) {
     navbarItemsList.push(
       {
         path: getRouteProfile(':id'),

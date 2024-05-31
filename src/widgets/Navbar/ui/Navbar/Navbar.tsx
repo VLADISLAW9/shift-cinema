@@ -12,7 +12,7 @@ import { NavbarItem } from '../NavbarItem/NavbarItem';
 import cls from './Navbar.module.scss';
 
 export const Navbar = memo(() => {
-  const authData = useUserStore((state) => state.user);
+  const isLoggedIn = useUserStore((state) => state.isLoggedIn);
   const navbarItemList = useNavbarItems();
 
   const itemsList = useMemo(
@@ -23,7 +23,7 @@ export const Navbar = memo(() => {
   return (
     <HStack justify='between' align='center' gap='32' className={cls.navbar}>
       <AppLogo clickable className={cls.appLogo} />
-      {authData ? (
+      {isLoggedIn ? (
         <>
           <HStack className={cls.links} gap='32'>
             {itemsList}

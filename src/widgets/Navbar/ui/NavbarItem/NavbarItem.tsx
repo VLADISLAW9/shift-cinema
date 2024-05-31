@@ -2,6 +2,8 @@ import { memo } from 'react';
 import { Link } from '@ui/Link';
 import { Typography } from '@ui/Typography';
 
+import { useUserStore } from '@/entities/User/model/store/useUserStore';
+
 import type { NavbarItem as NavbarItemType } from '../../model/types/NavbarItem';
 
 interface NavbarItemProps {
@@ -9,9 +11,9 @@ interface NavbarItemProps {
 }
 
 export const NavbarItem = memo(({ item }: NavbarItemProps) => {
-  const isAuth = true;
+  const isLoggedIn = useUserStore((state) => state.isLoggedIn);
 
-  if (item.authOnly && !isAuth) {
+  if (item.authOnly && !isLoggedIn) {
     return null;
   }
 
