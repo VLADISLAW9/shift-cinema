@@ -1,6 +1,17 @@
 .film_img {
-	width: 300px;
-	height: 300px;
+	width: 325px;
+	height: 325px;
 	border-radius: 8px 8px 0;
 	object-fit: cover;
+}
+
+.film_description {
+	display: -webkit-box;
+	overflow: hidden;
+	-webkit-box-orient: vertical;
+	-webkit-line-clamp: 3; 
+}
+
+.more_info_button {
+	width: 100%;
 }

@@ -1,4 +1,26 @@
-.app_colors {
-	--primary-color: #9534D2
-	--bg-color: #FFF
+:root {
+	// background
+	--bg-primary: #FFF;
+	--bg-brand-primary: #F0F6FF;
+	--bg-tertiary: #F9FAFB;
+	--bg-brand: #1975FF;
+	--bg-hover-primary: #0052CC;
+	--bg-brand-extra-light: #CCE0FF;
+	--bg-disabled:#F3F4F6;
+
+	// text
+	--text-primary-color: #141C24;
+	--text-secondary-color: #344051;
+	--text-tertiary-color:#637083;
+	--text-quartenery-color: #97A1AF;
+
+	// border
+	--border-light-color: #CED2DA;
+	--border-extra-light-color: #E3E5E5;
+
+	// indicators
+	--indicator-focused-color: #4C94FF;
+	--indicator-error-color: #F64C4C;
+	--indicator-attention-color: #FFB219;
+	--indicator-light-color: #CED2DA;
 }

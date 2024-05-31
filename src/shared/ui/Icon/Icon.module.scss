@@ -1,5 +1,5 @@
 .icon {
-	color: #97A1AF;
+	color: var(--text-quartenery-color);
 }
 
 .button {
@@ -12,5 +12,5 @@
 }
 
 .button:hover .icon {
-	color: #97A1AF;
+	color: var(--text-quartenery-color);
 }

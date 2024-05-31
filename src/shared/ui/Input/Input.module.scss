@@ -3,28 +3,28 @@
 	width: 100%;
 	align-items: center;
 	padding: 12px;
-	border: 1px solid #97A1AF;
+	border: 1px solid var(--text-quartenery-color);
 	border-radius: 8px;
 	background: none;
-	color: #141C24;
+	color: var(--text-primary-color);
 	outline: none;
 	transition: all 0.2s ease-out;
 
 	&:focus {
-		border: 1px solid #4C94FF;
+		border: 1px solid var(--indicator-focused-color);
 	}
 
 	&:hover {
-		border: 1px solid #CED2DA;
+		border: 1px solid var(--border-light-color);
 	}
 
 	&::placeholder {
-		 color: #637083;
+		 color: var(--text-tertiary-color);
 		}
 
 	&:disabled {
-		background:#F3F4F6 ;
-		color: #637083;
+		background:var(--bg-disabled);
+		color: var(--text-tertiary-color);
 	}
 }
 
@@ -32,14 +32,14 @@
 
   & input {
     border: 1px solid;
-    border-color: #F64C4C ;
+    border-color: var(--text-primary-color) ;
   }
 
 	& p {
-		color: #F64C4C;
+		color: var(--text-primary-color);
 	}
 }
 
 .hint_message {
-	color: #637083
+	color: var(--text-tertiary-color)
 }

@@ -1,10 +1,5 @@
 import type { Country } from '@/entities/Country';
-
-interface UserRating {
-  description: string;
-  kinopoisk: string;
-  imdb: string;
-}
+import type { FilmUserRating } from '@/entities/FilmUserRating';
 
 export interface Film {
   id: string;
@@ -17,7 +12,7 @@ export interface Film {
   runtime: number;
   ageRating: number;
   genres: string[];
-  userRating: UserRating;
+  userRatings: FilmUserRating;
   img: string;
   country?: Country;
 }

@@ -1,15 +1,15 @@
 .link {
-	color: #344051;
+	color: var(--text-secondary-color);
 
 	&:hover {
-			color: #141C24;
+			color: var(--text-primary-color);
 	}
 
 	&:focus {
-			color: #344051;
+			color: var(--text-secondary-color);
 	}
 
 	&:disabled {
-			color: #637083;
+			color: var(--text-tertiary-color);
 	}
 }

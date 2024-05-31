@@ -20,7 +20,7 @@ interface ClickableBaseProps extends IconBaseProps {
   onClick: () => void;
 }
 
-type IconProps = NonClickableIconProps | ClickableBaseProps;
+export type IconProps = NonClickableIconProps | ClickableBaseProps;
 
 export const Icon = memo((props: IconProps) => {
   const { className, Svg, width = 32, height = 32, clickable, ...otherProps } = props;

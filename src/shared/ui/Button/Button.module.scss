@@ -16,50 +16,50 @@
 
 
 .primary_filled {
-	background:#1975FF;
-	color: #fff;
+	background: var(--bg-brand);
+	color: var(--bg-primary);
 	
 	&:hover {
-		background: #0052CC;
+		background: var(--bg-hover-primary);
 	}
 
 	&:focus {
-		border-color:#CCE0FF;
+		border-color:var(--bg-brand-extra-light);
 	}
 
 	&:disabled {
-		background: #CCE0FF;
+		background: var(--bg-brand-extra-light);
 	}
 }
 
 .default_filled {
-	border-color: #CED2DA;
-	color:#344051;
+	border-color: var(--border-light-color);
+	color: var(--text-secondary-color);
 
 	&:hover {
-		background: #F9FAFB;
+		background: var(--bg-tertiary);
 	}
 
 	&:disabled {
-		border-color:#E3E5E5;
-		color: #637083;
+		border-color: var(--border-extra-light-color);
+		color: var(--text-quartenery-color);
 	}
-}
+} 
 
 .primary_text {
-	color: #1975FF;
+	color: var(--bg-brand);
 	
 	&:hover {
-		background: #F0F6FF;
+		background: var(--bg-brand-primary);
 	}
 
 	&:focus {
-		border-color: #CCE0FF;
+		border-color: var(--bg-brand-extra-light);
 	}
 
 	&:disabled {
-		border-color:#CCE0FF;
-		color: #CCE0FF;
+		border-color:var(--bg-brand-extra-light);
+		color: var(--bg-brand-extra-light);
 	}
 }
 
