@@ -13,9 +13,11 @@ interface UserActions {
 }
 
 export const useUserStore = create<UserState & UserActions>((set) => ({
+  // State
   user: undefined,
   isLoggedIn: false,
 
+  // Actions
   initUser: (user) => {
     set({ user });
     set({ isLoggedIn: true });

@@ -2,10 +2,9 @@ import { useMutation } from '@tanstack/react-query';
 
 import type { User } from '@/entities/User';
 import { $api } from '@/shared/api/api';
+import type { Response } from '@/shared/types/response';
 
-interface SignInResponseSchema {
-  success: boolean;
-  reason: string;
+interface SignInResponseSchema extends Response {
   user: User;
   token: string;
 }

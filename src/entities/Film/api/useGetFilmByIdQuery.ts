@@ -1,11 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 
 import { $api } from '@/shared/api/api';
+import type { Response } from '@/shared/types/response';
 
 import type { Film } from '../model/types/film';
 
-// TODO: Вынести success и reason в абстракцию
-interface FilmByIdResponseSchema {
+interface FilmByIdResponseSchema extends Response {
   success: boolean;
   reason: string;
   film: Film;

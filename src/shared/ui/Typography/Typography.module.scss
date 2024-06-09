@@ -58,6 +58,13 @@
   line-height: 20px;
 }
 
+.typography12_regular {
+  font-family: var(--font-family-main);
+  font-size: 12px;
+  font-weight: 400;
+  line-height: 16px;
+}
+
 .typography24_medium {
   font-family: var(--font-family-main);
   font-size: 24px;
@@ -84,6 +91,13 @@
   font-size: 14px;
   font-weight: 500;
   line-height: 20px;
+}
+
+.typography12_medium {
+  font-family: var(--font-family-main);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
 }
 
 .typography24_semibold {
@@ -114,6 +128,13 @@
   line-height: 20px;
 }
 
+.typography12_semibold {
+  font-family: var(--font-family-main);
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 16px;
+}
+
 .typography24_bold {
   font-family: var(--font-family-main);
   font-size: 24px;
@@ -141,6 +162,15 @@
   font-weight: 700;
   line-height: 20px;
 }
+
+.typography12_bold {
+  font-family: var(--font-family-main);
+  font-size: 12px;
+  font-weight: 700;
+  line-height: px;
+}
+
+
 
 .clickable {
   cursor: pointer;

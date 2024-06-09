@@ -1,10 +1,9 @@
 import { useMutation } from '@tanstack/react-query';
 
 import { $api } from '@/shared/api/api';
+import type { Response } from '@/shared/types/response';
 
-interface CreateOtpCodeResponseSchema {
-  success: boolean;
-  reason: string;
+interface CreateOtpCodeResponseSchema extends Response {
   retryDelay: number;
 }
 

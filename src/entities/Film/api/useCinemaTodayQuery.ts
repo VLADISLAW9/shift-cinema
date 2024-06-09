@@ -1,12 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 
 import { $api } from '@/shared/api/api';
+import type { Response } from '@/shared/types/response';
 
 import type { Film } from '../model/types/film';
 
-interface CinemaTodayResponseSchema {
-  success: boolean;
-  reason: string;
+interface CinemaTodayResponseSchema extends Response {
   films: Film[];
 }
 

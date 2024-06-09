@@ -33,7 +33,7 @@ export const FilmListItem = memo((props: FilmListItemProps) => {
         </Typography>
       </VStack>
       <FilmUserRatingStack size={20} rate={film.userRatings} />
-      <Link to={getRouteFilmDetails(film.id)}>
+      <Link className={cls.more_info_button_wrapper} to={getRouteFilmDetails(film.id)}>
         <Button size='l' className={cls.more_info_button}>
           <Typography tag='h3' variant='typography16_semibold'>
             Подробнее

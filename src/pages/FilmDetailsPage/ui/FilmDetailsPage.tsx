@@ -2,14 +2,10 @@ import { memo } from 'react';
 import { useParams } from 'react-router-dom';
 
 import { FilmDetails } from '@/entities/Film/ui/FilmDetails/FilmDetails';
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { VStack } from '@/shared/ui/Stack';
+import { BuyFilmTicketSection } from '@/widgets/BuyFilmTicketSection/ui/BuyFilmTicketSection';
 
-interface FilmDetailsPageProps {
-  className?: string;
-}
-
-const FilmDetailsPage = (props: FilmDetailsPageProps) => {
-  const { className } = props;
+const FilmDetailsPage = () => {
   const { id } = useParams<{ id: string }>();
 
   if (!id) {
@@ -17,9 +13,10 @@ const FilmDetailsPage = (props: FilmDetailsPageProps) => {
   }
 
   return (
-    <div className={classNames('', {}, [className])}>
+    <VStack gap='48'>
       <FilmDetails id={id} />
-    </div>
+      <BuyFilmTicketSection pageId={id} />
+    </VStack>
   );
 };
 

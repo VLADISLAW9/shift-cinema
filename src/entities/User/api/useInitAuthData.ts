@@ -2,12 +2,11 @@ import { useQuery } from '@tanstack/react-query';
 
 import { $api } from '@/shared/api/api';
 import { USER_LOCALSTORAGE_KEY } from '@/shared/consts/localstorage';
+import type { Response } from '@/shared/types/response';
 
 import type { User } from '../model/types/user';
 
-interface InitAuthDataResponseSchema {
-  success: boolean;
-  reason: string;
+interface InitAuthDataResponseSchema extends Response {
   user: User;
 }
 
