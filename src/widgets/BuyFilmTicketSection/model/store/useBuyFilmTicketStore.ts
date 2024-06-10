@@ -1,29 +1,45 @@
 import { create } from 'zustand';
 
+import type { Hall, PurchasedTickets, Seance } from '@/entities/Film';
+import type { User } from '@/entities/User';
+
 interface BuyFilmTicketState {
-  seanceDate?: string;
-  seanceTime?: string;
-  ticketRow?: number;
-  ticketColumn?: number;
+  filmId?: string;
+  seance?: Partial<Seance>;
+  hall?: Hall;
+  person?: Omit<Partial<User>, 'id' | 'email' | 'city'>;
+  tickets?: PurchasedTickets[];
 }
 
 interface BuyFilmTicketActions {
   setSeanceDate: (seanceDate: string) => void;
   setSeanceTime: (seanceTime: string) => void;
-  setTicketRow: (ticketRow: number) => void;
-  setTicketColumn: (ticketColumn: number) => void;
+  setHall: (hall: Hall) => void;
+  setTickets: (tickets: PurchasedTickets[]) => void;
+  setFilmId: (filmId: string) => void;
+  setPersonFirstName: (firstname: string) => void;
+  setPersonLastName: (lastname: string) => void;
+  setPersonMiddleName: (middlename: string) => void;
+  setPersonPhone: (phone: string) => void;
 }
 
 export const useBuyFilmTicketStore = create<BuyFilmTicketState & BuyFilmTicketActions>((set) => ({
   // State
-  seanceDate: undefined,
-  seanceTime: undefined,
-  ticketRow: undefined,
-  ticketColumn: undefined,
+  filmId: undefined,
+  tickets: undefined,
+  seance: undefined,
+  debitCard: undefined,
+  person: undefined,
+  hall: undefined,
 
   // Actions
-  setSeanceDate: (seanceDate) => set({ seanceDate }),
-  setSeanceTime: (seanceTime) => set({ seanceTime }),
-  setTicketRow: (ticketRow) => set({ ticketRow }),
-  setTicketColumn: (ticketColumn) => set({ ticketColumn })
+  setFilmId: (filmId) => set({ filmId }),
+  setSeanceDate: (seanceDate) => set(({ seance }) => ({ seance: { ...seance, date: seanceDate } })),
+  setSeanceTime: (seanceTime) => set(({ seance }) => ({ seance: { ...seance, time: seanceTime } })),
+  setHall: (hall) => set({ hall }),
+  setTickets: (tickets) => set({ tickets }),
+  setPersonFirstName: (firstname) => set(({ person }) => ({ person: { ...person, firstname } })),
+  setPersonLastName: (lastname) => set(({ person }) => ({ person: { ...person, lastname } })),
+  setPersonMiddleName: (middlename) => set(({ person }) => ({ person: { ...person, middlename } })),
+  setPersonPhone: (phone) => set(({ person }) => ({ person: { ...person, phone } }))
 }));

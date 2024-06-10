@@ -1,0 +1,14 @@
+.credit_card_wrapper {
+	width: 350px;
+	padding: 24px;
+	border-radius: 16px;
+	background: var(--bg-disabled);
+}
+
+.payment_button {
+	width: 350px; 
+}
+
+.error_message {
+	color: var(--indicator-error-color);
+}

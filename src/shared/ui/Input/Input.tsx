@@ -2,6 +2,7 @@ import React from 'react';
 
 import { classNames } from '@/shared/lib/classNames';
 
+import { VStack } from '../Stack';
 import { Typography } from '../Typography';
 
 import cls from './Input.module.scss';
@@ -16,7 +17,7 @@ type InputProps<
 
 export const Input = React.forwardRef(
   (
-    { label, className, component, error, id: externalId, ...props }: InputProps<'input'>,
+    { label, className, component, error, id: externalId, required, ...props }: InputProps<'input'>,
     ref: React.ForwardedRef<HTMLInputElement>
   ) => {
     const internalId = React.useId();
@@ -25,8 +26,12 @@ export const Input = React.forwardRef(
     const Component = component || 'input';
 
     return (
-      <div className={classNames(cls.input_wrapper, { [cls.error]: !!error })}>
-        {label && <Typography variant='typography14_regular'>{label}</Typography>}
+      <VStack gap='8' className={classNames(cls.input_wrapper, { [cls.error]: !!error })}>
+        {label && (
+          <Typography variant='typography14_regular'>
+            {label} {required && '*'}
+          </Typography>
+        )}
         <Component
           className={classNames(cls.input, {}, [className])}
           {...props}
@@ -38,7 +43,7 @@ export const Input = React.forwardRef(
             {error}
           </Typography>
         )}
-      </div>
+      </VStack>
     );
   }
 ) as <Component extends keyof JSX.IntrinsicElements | React.JSXElementConstructor<any> = 'input'>(

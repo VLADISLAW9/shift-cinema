@@ -1,0 +1,37 @@
+.modal {
+	position: fixed;
+	z-index: 100;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	inset: 0;
+	opacity: 0;
+	pointer-events: none;
+}
+
+.content {
+	z-index: var(--modal-z-index);
+	max-width: 60%;
+	padding: 72px;
+	border-radius: 12px;
+	background: var(--bg-primary);
+	transform: scale(0.5);
+	transition: 0.3s transform;
+}
+
+.opened {
+	z-index: var(--modal-z-index);
+	opacity: 1;
+	pointer-events: auto;
+
+	.content {
+			transform: scale(1);
+	}
+}
+
+.is_closing {
+
+	.content {
+			transform: scale(0.2);
+	}
+}

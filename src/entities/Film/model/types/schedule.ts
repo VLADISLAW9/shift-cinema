@@ -11,12 +11,23 @@ export interface Ticket {
   phone: string;
 }
 
-interface Hall {
-  name: 'Red' | 'Blue' | 'Violet';
-  places: any;
+export interface PurchasedTickets {
+  row: number;
+  column: number;
+  price: number;
 }
 
-interface ScheduleSeance {
+export interface Place {
+  price: 0;
+  type: 'ECONOM' | 'BLOCKED' | 'COMFORT';
+}
+
+export interface Hall {
+  name: 'Red' | 'Blue' | 'Violet';
+  places: Place[][];
+}
+
+export interface ScheduleSeance {
   time: string;
   hall: Hall;
   payedTickets: Ticket[];

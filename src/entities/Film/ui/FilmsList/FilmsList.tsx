@@ -1,11 +1,10 @@
 import { memo } from 'react';
 
 import { classNames } from '@/shared/lib/classNames/classNames';
+import { Grid } from '@/shared/ui/Stack';
 
 import { useCinemaTodayQuery } from '../../api/useCinemaTodayQuery';
 import { FilmListItem } from '../FilmListItem/FilmListItem';
-
-import cls from './FilmsList.module.scss';
 
 interface FilmsListProps {
   className?: string;
@@ -18,14 +17,14 @@ export const FilmsList = memo((props: FilmsListProps) => {
   const films = cinemaTodayQuery.data?.films;
 
   if (cinemaTodayQuery.isLoading || !films) {
-    return <div className={classNames(cls.film_list, {}, [className])}>Loading...</div>;
+    return <div className={classNames('', {}, [className])}>Loading...</div>;
   }
 
   return (
-    <div className={classNames(cls.film_list, {}, [className])}>
+    <Grid columns={4} gap={50} className={classNames('', {}, [className])}>
       {films.map((film) => (
         <FilmListItem key={film.id} film={film} />
       ))}
-    </div>
+    </Grid>
   );
 });

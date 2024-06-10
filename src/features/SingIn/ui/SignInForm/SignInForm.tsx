@@ -10,6 +10,7 @@ import { Typography } from '@ui/Typography';
 import { useUserStore } from '@/entities/User/model/store/useUserStore';
 import { USER_LOCALSTORAGE_KEY } from '@/shared/consts/localstorage';
 import { getRouteFilms } from '@/shared/consts/router';
+import { convertPhoneToString } from '@/shared/lib/utils/convertPhoneToString';
 
 import { useCreateOtpCodeMutation } from '../../api/useCreateOtpCodeMutation';
 import { useSignInMutation } from '../../api/useSignInMutation';
@@ -104,7 +105,7 @@ export const SignInForm = memo((props: SignInFormProps) => {
             {...otherFieldProps}
             component={PatternFormat}
             format='+7 ### ### ## ##'
-            onChange={(event) => onChange(event.target.value.replace('+', '').replace(/ /g, ''))}
+            onChange={(event) => onChange(convertPhoneToString(event.target.value))}
             className={cls.phone_number_input}
             placeholder='Телефон'
             {...(fieldState.error && { error: fieldState.error.message })}

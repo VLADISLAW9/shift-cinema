@@ -1,4 +1,5 @@
-import type { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
+import type { DetailedHTMLProps, HTMLAttributes, ReactNode, Ref } from 'react';
+import { forwardRef } from 'react';
 import type { Mods } from '@lib/classNames';
 import { classNames } from '@lib/classNames';
 
@@ -50,7 +51,7 @@ export interface FlexProps extends DivProps {
   max?: boolean;
 }
 
-export const Flex = (props: FlexProps) => {
+export const Flex = forwardRef<HTMLDivElement, FlexProps>((props, ref) => {
   const {
     className,
     children,
@@ -77,8 +78,8 @@ export const Flex = (props: FlexProps) => {
   };
 
   return (
-    <div className={classNames(cls.flex, mods, classes)} {...otherProps}>
+    <div ref={ref} className={classNames(cls.flex, mods, classes)} {...otherProps}>
       {children}
     </div>
   );
-};
+});

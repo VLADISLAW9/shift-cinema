@@ -1,7 +1,13 @@
 import type { FilmScheduleResponseSchema } from '@/entities/Film/api/useGetFilmScheduleByIdQuery';
-import type { RadioGroupItem } from '@/shared/ui/RadioGroup';
+import { convertDate } from '@/shared/lib/utils/convertDate';
+import type { RadioGroupItem } from '@/shared/ui/Selectors/RadioGroup';
 
-export const getGroupTimeItems = (data?: FilmScheduleResponseSchema, seanceDate?: string) => {
+export const getScheduleItems = (data?: FilmScheduleResponseSchema, seanceDate?: string) => {
+  const dateItems: RadioGroupItem<string>[] | undefined = data?.schedules.map((schedule) => ({
+    value: schedule.date,
+    content: convertDate(schedule.date, 'ddd, DD MMM')
+  }));
+
   const redHallItems: RadioGroupItem<string>[] = [];
   const blueHallItems: RadioGroupItem<string>[] = [];
   const violetHallItems: RadioGroupItem<string>[] = [];
@@ -31,5 +37,5 @@ export const getGroupTimeItems = (data?: FilmScheduleResponseSchema, seanceDate?
     }
   }
 
-  return { redHallItems, blueHallItems, violetHallItems };
+  return { dateItems, redHallItems, blueHallItems, violetHallItems };
 };

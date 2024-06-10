@@ -1,6 +1,7 @@
 import { AuthPage } from '@/pages/AuthPage';
 import { FilmDetailsPage } from '@/pages/FilmDetailsPage';
 import { FilmsPage } from '@/pages/FilmsPage';
+import PaymentPage from '@/pages/PaymentPage/ui/PaymentPage';
 import {
   AppRoutes,
   getRouteAuth,
@@ -28,7 +29,7 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
   },
   [AppRoutes.PAYMENT]: {
     path: getRoutePayment(),
-    element: <div />,
+    element: <PaymentPage />,
     authOnly: true
   },
   [AppRoutes.TICKETS]: {

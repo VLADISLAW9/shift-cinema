@@ -5,7 +5,7 @@
 	padding: 12px;
 	border: 1px solid var(--text-quartenery-color);
 	border-radius: 8px;
-	background: none;
+	background: var(--bg-primary);
 	color: var(--text-primary-color);
 	outline: none;
 	transition: all 0.2s ease-out;
@@ -32,11 +32,11 @@
 
   & input {
     border: 1px solid;
-    border-color: var(--text-primary-color) ;
+    border-color: var(--indicator-error-color) ;
   }
 
 	& p {
-		color: var(--text-primary-color);
+		color: var(--indicator-error-color);
 	}
 }
 

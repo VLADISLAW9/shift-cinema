@@ -1,0 +1,33 @@
+.hall_matrix_place {
+	display: flex;
+	width: 16px;
+	height: 16px;
+	align-items: center;
+	justify-content: center;
+	border-radius: 4px;
+	background-color: var(--bg-brand);
+	cursor: pointer;
+	transition: transform 0.1s ease-in-out;
+
+	&:hover {
+		transform:scale(2); 
+	}
+}
+
+.disabled_place {
+	background-color: var(--indicator-light-color);
+	cursor: auto;
+
+	&:hover {
+		transform: none;
+	}
+}
+
+.enabled_place {
+	transform: scale(2); 
+}
+
+.hall_matrix_place_text {
+	color: var(--text-invert-color);
+}
+
