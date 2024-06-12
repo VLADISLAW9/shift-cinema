@@ -3,6 +3,7 @@ import { FilmDetailsPage } from '@/pages/FilmDetailsPage';
 import { FilmsPage } from '@/pages/FilmsPage';
 import { OrdersPage } from '@/pages/OrdersPage';
 import PaymentPage from '@/pages/PaymentPage/ui/PaymentPage';
+import { ProfilePage } from '@/pages/ProfilePage';
 import {
   AppRoutes,
   getRouteAuth,
@@ -39,8 +40,8 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     authOnly: true
   },
   [AppRoutes.PROFILE]: {
-    path: getRouteProfile(':id'),
-    element: <div />,
+    path: getRouteProfile(),
+    element: <ProfilePage />,
     authOnly: true
   },
   // last

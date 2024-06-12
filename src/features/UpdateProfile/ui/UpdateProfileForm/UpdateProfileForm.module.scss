@@ -1,0 +1,14 @@
+.update_profile_form {
+	display: flex;
+	width: 350px;
+	flex-direction: column;
+	gap: 24px
+}
+
+.update_button {
+	width: 275px;
+}
+
+.error_message {
+	color: var(--indicator-error-color);
+}

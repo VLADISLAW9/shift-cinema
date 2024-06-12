@@ -3,12 +3,13 @@ import { create } from 'zustand';
 import type { User } from '../types/user';
 
 interface UserState {
-  user?: User;
+  user?: Partial<User>;
   isLoggedIn: boolean;
 }
 
 interface UserActions {
   initUser: (user: User) => void;
+  setUserData: (user: Omit<User, 'id'>) => void;
   clearUser: () => void;
 }
 
@@ -21,6 +22,10 @@ export const useUserStore = create<UserState & UserActions>((set) => ({
   initUser: (user) => {
     set({ user });
     set({ isLoggedIn: true });
+  },
+
+  setUserData: (newUserData) => {
+    set(({ user }) => ({ user: { id: user?.id, ...newUserData } }));
   },
 
   clearUser: () => {
