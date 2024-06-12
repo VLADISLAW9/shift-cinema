@@ -1,16 +1,9 @@
+import type { Ticket } from '@/entities/Ticket';
+
 export interface Seance {
   date: string;
   time: string;
 }
-
-export interface Ticket {
-  filmId: string;
-  row: number;
-  column: number;
-  seance: Seance;
-  phone: string;
-}
-
 export interface PurchasedTickets {
   row: number;
   column: number;

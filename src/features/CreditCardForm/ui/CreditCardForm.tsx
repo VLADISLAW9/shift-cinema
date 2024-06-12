@@ -2,6 +2,7 @@ import { memo, useState } from 'react';
 import { Controller } from 'react-hook-form';
 import { PatternFormat } from 'react-number-format';
 
+import type { Order } from '@/entities/Order';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { Button } from '@/shared/ui/Button/Button';
 import { Input } from '@/shared/ui/Input';
@@ -17,12 +18,14 @@ import cls from './CreditCardForm.module.scss';
 
 interface CreditCardFormProps {
   className?: string;
+  setOrder: (order: Order) => void;
+  setIsOpenOrderWindow: (isOpen: boolean) => void;
 }
 
 export const CreditCardForm = memo((props: CreditCardFormProps) => {
-  const { className } = props;
+  const { className, setOrder, setIsOpenOrderWindow } = props;
 
-  const { filmId, person, tickets, seance } = useBuyFilmTicketStore();
+  const { filmId, person, tickets, seance, onClearState } = useBuyFilmTicketStore();
 
   const paymentMutation = usePaymentMutation();
   const [paymentError, setPaymentError] = useState('');
@@ -42,6 +45,10 @@ export const CreditCardForm = memo((props: CreditCardFormProps) => {
       if (!paymentResponse.data.success && paymentResponse.data.reason) {
         return setPaymentError(paymentResponse.data.reason);
       }
+
+      setOrder(paymentResponse.data.order);
+      setIsOpenOrderWindow(true);
+      onClearState();
     } else {
       return setPaymentError('Не удалось оплатить');
     }

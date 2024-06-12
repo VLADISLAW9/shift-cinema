@@ -5,12 +5,12 @@ import { FilmScheduleSelect } from '@/features/FilmScheduleSelect';
 import { FilmUserDataModal } from '@/features/FilmUserData';
 import { classNames } from '@/shared/lib/classNames/classNames';
 import { convertDate } from '@/shared/lib/utils/convertDate';
+import { formatPlacesToString } from '@/shared/lib/utils/formatPlacesToString';
 import { Button } from '@/shared/ui/Button/Button';
 import { HStack, VStack } from '@/shared/ui/Stack';
 import { Typography } from '@/shared/ui/Typography';
 
 import { calculateTotalTicketCost } from '../model/lib/utils/countTicketsPrice';
-import { formatPlacesToString } from '../model/lib/utils/formatPlacesToString';
 import { useBuyFilmTicketStore } from '../model/store/useBuyFilmTicketStore';
 
 import cls from './BuyFilmTicketSection.module.scss';
@@ -43,6 +43,7 @@ export const BuyFilmTicketSection = memo((props: BuyFilmTicketSectionProps) => {
   return (
     <VStack gap='32' className={classNames('', {}, [className])}>
       <FilmScheduleSelect
+        hall={hall}
         seance={seance}
         setSeanceDate={setSeanceDate}
         setSeanceTime={setSeanceTime}

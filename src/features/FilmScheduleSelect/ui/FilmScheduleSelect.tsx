@@ -21,7 +21,7 @@ interface FilmScheduleSelectProps {
 }
 
 export const FilmScheduleSelect = memo((props: FilmScheduleSelectProps) => {
-  const { className, pageId, setSeanceDate, setSeanceTime, seance, setHall } = props;
+  const { className, pageId, setSeanceDate, hall, setSeanceTime, seance, setHall } = props;
 
   const { data } = useGetFilmScheduleByIdQuery(pageId);
 
@@ -47,12 +47,13 @@ export const FilmScheduleSelect = memo((props: FilmScheduleSelectProps) => {
         const selectedSeance = selectedSchedule.seances.find(
           (seanceItem) => seanceItem.time === time && seanceItem.hall.name === hallName
         );
-        if (selectedSeance) {
+
+        if (selectedSeance && hall?.name !== hallName) {
           setHall(selectedSeance.hall);
         }
       }
     },
-    [data?.schedules, seance?.date, setHall, setSeanceTime]
+    [data?.schedules, hall?.name, seance?.date, setHall, setSeanceTime]
   );
 
   return (

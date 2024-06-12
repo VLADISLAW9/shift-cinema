@@ -23,6 +23,7 @@ interface BuyFilmTicketActions {
   setPersonLastName: (lastname: string) => void;
   setPersonMiddleName: (middlename: string) => void;
   setPersonPhone: (phone: string) => void;
+  onClearState: () => void;
 }
 
 export const useBuyFilmTicketStore = create<BuyFilmTicketState & BuyFilmTicketActions>((set) => ({
@@ -46,5 +47,14 @@ export const useBuyFilmTicketStore = create<BuyFilmTicketState & BuyFilmTicketAc
   setPersonFirstName: (firstname) => set(({ person }) => ({ person: { ...person, firstname } })),
   setPersonLastName: (lastname) => set(({ person }) => ({ person: { ...person, lastname } })),
   setPersonMiddleName: (middlename) => set(({ person }) => ({ person: { ...person, middlename } })),
-  setPersonPhone: (phone) => set(({ person }) => ({ person: { ...person, phone } }))
+  setPersonPhone: (phone) => set(({ person }) => ({ person: { ...person, phone } })),
+  onClearState: () =>
+    set(() => ({
+      hall: undefined,
+      filmId: undefined,
+      tickets: undefined,
+      seance: undefined,
+      person: undefined,
+      debitCard: undefined
+    }))
 }));
