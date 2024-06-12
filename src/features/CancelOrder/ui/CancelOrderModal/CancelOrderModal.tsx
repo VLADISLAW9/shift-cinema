@@ -45,11 +45,14 @@ export const CancelOrderModal = memo((props: CancelOrderModalProps) => {
         </VStack>
         <VStack max gap='16'>
           <Button
+            disabled={cancelOrderMutation.isPending}
             variant='default_filled'
             className={cls.cancel_order_button}
             onClick={onCancelOrder}
           >
-            <Typography variant='typography16_regular'>Вернуть</Typography>
+            <Typography variant='typography16_regular'>
+              {cancelOrderMutation.isPending ? 'Загрузка...' : 'Вернуть'}
+            </Typography>
           </Button>
           <Button className={cls.cancel_button} onClick={onClose}>
             <Typography variant='typography16_regular'>Отменить</Typography>

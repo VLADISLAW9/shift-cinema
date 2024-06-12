@@ -1,5 +1,6 @@
 import { memo, useState } from 'react';
 
+import { useUserStore } from '@/entities/User/model/store/useUserStore';
 import { FilmHallPlaceSelect } from '@/features/FilmHallPlaceSelect';
 import { FilmScheduleSelect } from '@/features/FilmScheduleSelect';
 import { FilmUserDataModal } from '@/features/FilmUserData';
@@ -37,6 +38,8 @@ export const BuyFilmTicketSection = memo((props: BuyFilmTicketSectionProps) => {
     setPersonPhone,
     setFilmId
   } = useBuyFilmTicketStore();
+
+  const { isLoggedIn } = useUserStore();
 
   const [isOpenUserData, setIsOpenUserData] = useState(false);
 
@@ -77,7 +80,11 @@ export const BuyFilmTicketSection = memo((props: BuyFilmTicketSectionProps) => {
                     Сумма: {calculateTotalTicketCost(tickets)} ₽
                   </Typography>
                 </VStack>
-                <Button onClick={() => setIsOpenUserData(true)} className={cls.buy_ticket_button}>
+                <Button
+                  disabled={!isLoggedIn}
+                  onClick={() => setIsOpenUserData(true)}
+                  className={cls.buy_ticket_button}
+                >
                   <Typography variant='typography16_semibold'>Купить</Typography>
                 </Button>
               </>
