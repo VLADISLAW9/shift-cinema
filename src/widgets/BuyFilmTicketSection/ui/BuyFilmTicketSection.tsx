@@ -1,15 +1,16 @@
-import { memo, useState } from 'react';
+import { memo, Suspense, useState } from 'react';
+import { classNames } from '@lib/classNames/classNames';
+import { convertDate } from '@lib/utils/convertDate';
+import { formatPlacesToString } from '@lib/utils/formatPlacesToString';
+import { Button } from '@ui/Button/Button';
+import { Skeleton } from '@ui/Skeleton/Skeleton';
+import { HStack, VStack } from '@ui/Stack';
+import { Typography } from '@ui/Typography';
 
-import { useUserStore } from '@/entities/User/model/store/useUserStore';
+import { useUserStore } from '@/entities/User';
 import { FilmHallPlaceSelect } from '@/features/FilmHallPlaceSelect';
 import { FilmScheduleSelect } from '@/features/FilmScheduleSelect';
 import { FilmUserDataModal } from '@/features/FilmUserData';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { convertDate } from '@/shared/lib/utils/convertDate';
-import { formatPlacesToString } from '@/shared/lib/utils/formatPlacesToString';
-import { Button } from '@/shared/ui/Button/Button';
-import { HStack, VStack } from '@/shared/ui/Stack';
-import { Typography } from '@/shared/ui/Typography';
 
 import { calculateTotalTicketCost } from '../model/lib/utils/countTicketsPrice';
 import { useBuyFilmTicketStore } from '../model/store/useBuyFilmTicketStore';
@@ -44,15 +45,24 @@ export const BuyFilmTicketSection = memo((props: BuyFilmTicketSectionProps) => {
   const [isOpenUserData, setIsOpenUserData] = useState(false);
 
   return (
-    <VStack gap='32' className={classNames('', {}, [className])}>
-      <FilmScheduleSelect
-        hall={hall}
-        seance={seance}
-        setSeanceDate={setSeanceDate}
-        setSeanceTime={setSeanceTime}
-        setHall={setHall}
-        pageId={pageId}
-      />
+    <VStack gap='32' className={className}>
+      <Suspense
+        fallback={
+          <VStack gap='16'>
+            <Skeleton width={150} height={25} />
+            <Skeleton width={700} height={25} />
+          </VStack>
+        }
+      >
+        <FilmScheduleSelect
+          hall={hall}
+          seance={seance}
+          setSeanceDate={setSeanceDate}
+          setSeanceTime={setSeanceTime}
+          setHall={setHall}
+          pageId={pageId}
+        />
+      </Suspense>
       {hall && seance?.time && seance?.date && (
         <HStack max gap='48' align='end'>
           <FilmHallPlaceSelect hall={hall} tickets={tickets} setTickets={setTickets} />

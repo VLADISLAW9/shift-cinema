@@ -10,7 +10,7 @@ import type { SeanceFromStore } from '@/widgets/BuyFilmTicketSection/model/store
 
 import { getScheduleItems } from '../model/selectors/getScheduleItems';
 
-interface FilmScheduleSelectProps {
+export interface FilmScheduleSelectProps {
   className?: string;
   pageId: string;
   seance?: SeanceFromStore;
@@ -20,7 +20,7 @@ interface FilmScheduleSelectProps {
   hall?: Hall;
 }
 
-export const FilmScheduleSelect = memo((props: FilmScheduleSelectProps) => {
+const FilmScheduleSelect = (props: FilmScheduleSelectProps) => {
   const { className, pageId, setSeanceDate, hall, setSeanceTime, seance, setHall } = props;
 
   const { data } = useGetFilmScheduleByIdQuery(pageId);
@@ -96,4 +96,6 @@ export const FilmScheduleSelect = memo((props: FilmScheduleSelectProps) => {
       </VStack>
     </VStack>
   );
-});
+};
+
+export default memo(FilmScheduleSelect);

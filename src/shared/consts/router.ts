@@ -8,7 +8,7 @@ export enum AppRoutes {
   NOT_FOUND = 'not_found'
 }
 
-export const getRouteFilms = () => '/films';
+export const getRouteFilms = () => '/';
 export const getRouteFilmDetails = (id: string) => `/films/${id}`;
 export const getRouteAuth = () => `/auth`;
 export const getRouteProfile = () => `/profile`;

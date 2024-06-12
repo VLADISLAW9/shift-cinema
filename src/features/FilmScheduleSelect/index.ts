@@ -1,1 +1,1 @@
-export { FilmScheduleSelect } from './ui/FilmScheduleSelect';
+export { FilmScheduleSelectAsync as FilmScheduleSelect } from './ui/FilmScheduleSelect.async';

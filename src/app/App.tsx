@@ -1,7 +1,6 @@
 import { Suspense, useEffect } from 'react';
 
-import { useInitAuthDataQuery } from '@/entities/User/api/useInitAuthData';
-import { useUserStore } from '@/entities/User/model/store/useUserStore';
+import { useInitAuthDataQuery, useUserStore } from '@/entities/User';
 import { USER_LOCALSTORAGE_KEY } from '@/shared/consts/localstorage';
 import { AppLoaderLayout, DesktopLayouts } from '@/shared/layouts';
 import { Navbar } from '@/widgets/Navbar';

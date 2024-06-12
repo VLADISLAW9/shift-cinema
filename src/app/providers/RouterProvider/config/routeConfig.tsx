@@ -10,7 +10,6 @@ import {
   getRouteAuth,
   getRouteFilmDetails,
   getRouteFilms,
-  getRouteNotFound,
   getRouteOrders,
   getRoutePayment,
   getRouteProfile

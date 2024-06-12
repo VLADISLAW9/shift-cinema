@@ -1,35 +1,38 @@
 import { memo } from 'react';
+import { classNames } from '@lib/classNames/classNames';
+import { HStack, VStack } from '@ui/Stack';
+import { Typography } from '@ui/Typography';
 
 import { FilmUserRatingStack } from '@/entities/FilmUserRating';
-import { classNames } from '@/shared/lib/classNames/classNames';
-import { HStack, VStack } from '@/shared/ui/Stack';
-import { Typography } from '@/shared/ui/Typography';
+import { BuyFilmTicketSection } from '@/widgets/BuyFilmTicketSection';
 
 import { useGetFilmByIdQuery } from '../../api/useGetFilmByIdQuery';
 import { FilmImage } from '../FilmImage/FilmImage';
 
+import { FilmDetailSkeleton } from './FilmDetailSkeleton';
+
 interface FilmDetailsProps {
   className?: string;
-  id: string;
+  pageId: string;
 }
 
 export const FilmDetails = memo((props: FilmDetailsProps) => {
-  const { className, id } = props;
+  const { className, pageId } = props;
 
-  const filmQuery = useGetFilmByIdQuery(id);
+  const filmQuery = useGetFilmByIdQuery(pageId);
 
   const film = filmQuery.data?.film;
 
   if (filmQuery.isLoading) {
-    return <div>Loading...</div>;
+    return <FilmDetailSkeleton />;
   }
 
   if (!film) {
-    return <div>Not found</div>;
+    return <div>Такого фильма нет :(</div>;
   }
 
   return (
-    <VStack className={classNames('', {}, [className])}>
+    <VStack gap='48' className={classNames('', {}, [className])}>
       <HStack align='start' gap='32'>
         <FilmImage film={film} />
         <VStack gap='16'>
@@ -42,6 +45,7 @@ export const FilmDetails = memo((props: FilmDetailsProps) => {
           </Typography>
         </VStack>
       </HStack>
+      <BuyFilmTicketSection pageId={film.id} />
     </VStack>
   );
 });
