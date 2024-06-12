@@ -3,8 +3,7 @@ import { Suspense, useEffect } from 'react';
 import { useInitAuthDataQuery } from '@/entities/User/api/useInitAuthData';
 import { useUserStore } from '@/entities/User/model/store/useUserStore';
 import { USER_LOCALSTORAGE_KEY } from '@/shared/consts/localstorage';
-import { DesktopLayouts } from '@/shared/layouts';
-import { classNames } from '@/shared/lib/classNames';
+import { AppLoaderLayout, DesktopLayouts } from '@/shared/layouts';
 import { Navbar } from '@/widgets/Navbar';
 
 import AppRouter from './providers/RouterProvider/ui/AppRouter';
@@ -24,13 +23,12 @@ export const App = () => {
   }, [initUser, userData, userToken]);
 
   if (initAuthDataQuery.isLoading && userToken) {
-    return <div>Loading...</div>;
+    return <AppLoaderLayout />;
   }
 
   return (
-    <div id='app' className={classNames('app', {}, [])}>
-      {/* TODO: Сделать AppLoader скелетон */}
-      <Suspense fallback='Laoding...'>
+    <div id='app' className='app'>
+      <Suspense fallback=''>
         <DesktopLayouts content={<AppRouter />} header={<Navbar />} />
       </Suspense>
     </div>

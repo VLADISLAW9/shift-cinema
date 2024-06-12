@@ -1,6 +1,7 @@
 import { AuthPage } from '@/pages/AuthPage';
 import { FilmDetailsPage } from '@/pages/FilmDetailsPage';
 import { FilmsPage } from '@/pages/FilmsPage';
+import { NotFoundPage } from '@/pages/NotFoundPage';
 import { OrdersPage } from '@/pages/OrdersPage';
 import PaymentPage from '@/pages/PaymentPage/ui/PaymentPage';
 import { ProfilePage } from '@/pages/ProfilePage';
@@ -44,9 +45,8 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     element: <ProfilePage />,
     authOnly: true
   },
-  // last
   [AppRoutes.NOT_FOUND]: {
-    path: getRouteNotFound(),
-    element: <div />
+    path: '*',
+    element: <NotFoundPage />
   }
 };
