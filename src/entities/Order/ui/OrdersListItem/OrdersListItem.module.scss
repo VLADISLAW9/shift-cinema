@@ -1,0 +1,16 @@
+.orders_list_item {
+	width: 325px;
+	padding: 20px;
+	border: 1px solid var(--border-extra-light-color);
+	border-radius: 12px;
+}
+
+.cancel_order_button {
+	width: 100%;
+}
+
+.seance_time, 
+.order_code, 
+.seance_date {
+	color: var(--text-quartenery-color)
+} 

@@ -16,7 +16,7 @@ const FilmsPage = (props: FilmsPageProps) => {
 
   return (
     <VStack gap='16' className={classNames(cls.film_page, {}, [className])}>
-      <Typography className={cls.header} tag='h1' variant='typography24_bold'>
+      <Typography className={cls.header} tag='h1' variant='typography32_bold'>
         Афиша
       </Typography>
       <FilmsList />

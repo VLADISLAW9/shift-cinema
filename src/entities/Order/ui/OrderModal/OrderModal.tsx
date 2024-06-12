@@ -8,7 +8,7 @@ import { Modal } from '@ui/Modal';
 import { VStack } from '@ui/Stack';
 import { Typography } from '@ui/Typography';
 
-import { getRouteTickets } from '@/shared/consts/router';
+import { getRouteOrders } from '@/shared/consts/router';
 
 import type { Order } from '../../model/types/order';
 
@@ -36,7 +36,7 @@ export const OrderModal = (props: OrderModalProps) => {
     >
       <VStack gap='24'>
         <VStack justify='center' align='center' gap='32'>
-          <Icon Svg={SuccessIcon} />
+          <Icon width={60} height={60} Svg={SuccessIcon} />
           <Typography tag='h1' variant='typography32_bold'>
             Оплата прошла успешно
           </Typography>
@@ -47,12 +47,6 @@ export const OrderModal = (props: OrderModalProps) => {
               Номер билета
             </Typography>
             <Typography variant='typography20_regular'>{order.orderNumber}</Typography>
-          </VStack>
-          <VStack gap='4'>
-            <Typography className={cls.header} variant='typography14_regular'>
-              Фильм
-            </Typography>
-            <Typography variant='typography20_regular'>{order.filmName}</Typography>
           </VStack>
           <VStack gap='4'>
             <Typography className={cls.header} variant='typography14_regular'>
@@ -75,7 +69,7 @@ export const OrderModal = (props: OrderModalProps) => {
           </Typography>
         </VStack>
         <VStack justify='center'>
-          <Link to={getRouteTickets()}>
+          <Link to={getRouteOrders()}>
             <Typography className={cls.link_to_account} variant='typography16_regular'>
               Перейти в личный кабинет
             </Typography>

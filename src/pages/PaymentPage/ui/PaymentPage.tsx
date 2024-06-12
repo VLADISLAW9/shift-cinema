@@ -1,19 +1,18 @@
 import { memo } from 'react';
 
-import { classNames } from '@/shared/lib/classNames/classNames';
+import { VStack } from '@/shared/ui/Stack';
+import { Typography } from '@/shared/ui/Typography';
 import { PaymentTicketSection } from '@/widgets/PaymentTicketSection';
 
-interface PaymentPageProps {
-  className?: string;
-}
-
-const PaymentPage = memo((props: PaymentPageProps) => {
-  const { className } = props;
+const PaymentPage = () => {
   return (
-    <div className={classNames('', {}, [className])}>
+    <VStack gap='32'>
+      <Typography tag='h1' variant='typography32_bold'>
+        Введите данные карты
+      </Typography>
       <PaymentTicketSection />
-    </div>
+    </VStack>
   );
-});
+};
 
-export default PaymentPage;
+export default memo(PaymentPage);

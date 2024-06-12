@@ -1,6 +1,7 @@
 import { AuthPage } from '@/pages/AuthPage';
 import { FilmDetailsPage } from '@/pages/FilmDetailsPage';
 import { FilmsPage } from '@/pages/FilmsPage';
+import { OrdersPage } from '@/pages/OrdersPage';
 import PaymentPage from '@/pages/PaymentPage/ui/PaymentPage';
 import {
   AppRoutes,
@@ -8,9 +9,9 @@ import {
   getRouteFilmDetails,
   getRouteFilms,
   getRouteNotFound,
+  getRouteOrders,
   getRoutePayment,
-  getRouteProfile,
-  getRouteTickets
+  getRouteProfile
 } from '@/shared/consts/router';
 import type { AppRoutesProps } from '@/shared/types/router';
 
@@ -32,9 +33,9 @@ export const routeConfig: Record<AppRoutes, AppRoutesProps> = {
     element: <PaymentPage />,
     authOnly: true
   },
-  [AppRoutes.TICKETS]: {
-    path: getRouteTickets(),
-    element: <div />,
+  [AppRoutes.ORDERS]: {
+    path: getRouteOrders(),
+    element: <OrdersPage />,
     authOnly: true
   },
   [AppRoutes.PROFILE]: {

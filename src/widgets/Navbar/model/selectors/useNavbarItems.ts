@@ -1,5 +1,5 @@
 import { useUserStore } from '@/entities/User/model/store/useUserStore';
-import { getRouteProfile, getRouteTickets } from '@/shared/consts/router';
+import { getRouteOrders, getRouteProfile } from '@/shared/consts/router';
 
 import type { NavbarItem } from '../types/NavbarItem';
 
@@ -15,7 +15,7 @@ export const useNavbarItems = () => {
         authOnly: true
       },
       {
-        path: getRouteTickets(),
+        path: getRouteOrders(),
         text: 'Билеты',
         authOnly: true
       }

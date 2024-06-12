@@ -9,6 +9,8 @@
 	--bg-brand-extra-light: #CCE0FF;
 	--bg-disabled:#F3F4F6;
 	--overlay-color: rgba(0 0 0 / 60%);
+	--bg-success-color: #ECF9F2;
+	--bg-error-color: #f9ecec;
 
 	// text
 	--text-primary-color: #141C24;
@@ -16,6 +18,7 @@
 	--text-tertiary-color:#637083;
 	--text-quartenery-color: #97A1AF;
 	--text-invert-color: #fff;
+
 
 	// border
 	--border-light-color: #CED2DA;
@@ -26,5 +29,6 @@
 	--indicator-error-color: #F64C4C;
 	--indicator-attention-color: #FFB219;
 	--indicator-light-color: #CED2DA;
-	--indicator-medium-color:#97A1AF
+	--indicator-medium-color:#97A1AF;
+	--indicator-positive-color: #4ECF53;
 }

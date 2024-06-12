@@ -34,6 +34,7 @@
 
 .default_filled {
 	border-color: var(--border-light-color);
+	background: var(--bg-primary);
 	color: var(--text-secondary-color);
 
 	&:hover {

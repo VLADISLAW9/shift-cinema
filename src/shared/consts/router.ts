@@ -2,7 +2,7 @@ export enum AppRoutes {
   FILMS = 'films',
   AUTH = 'auth',
   FILM_DETAILS = 'films_details',
-  TICKETS = 'tickets',
+  ORDERS = 'orders',
   PROFILE = 'profile',
   PAYMENT = 'payment',
   // last
@@ -13,7 +13,7 @@ export const getRouteFilms = () => '/films';
 export const getRouteFilmDetails = (id: string) => `/films/${id}`;
 export const getRouteAuth = () => `/auth`;
 export const getRouteProfile = (id: string) => `/profile/${id}`;
-export const getRouteTickets = () => `/tickets`;
+export const getRouteOrders = () => `/orders`;
 export const getRouteNotFound = () => `/not_found`;
 export const getRoutePayment = () => `/payment`;
 
@@ -22,5 +22,5 @@ export const AppRouteByPathPattern: Record<string, AppRoutes> = {
   [getRouteFilms()]: AppRoutes.FILMS,
   [getRouteFilmDetails(':id')]: AppRoutes.FILM_DETAILS,
   [getRouteProfile(':id')]: AppRoutes.PROFILE,
-  [getRouteTickets()]: AppRoutes.TICKETS
+  [getRouteOrders()]: AppRoutes.ORDERS
 };

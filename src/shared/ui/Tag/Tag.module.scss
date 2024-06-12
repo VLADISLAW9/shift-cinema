@@ -1,0 +1,15 @@
+.tag {
+	padding: 6px 12px;
+	border-radius: 16px;
+} 
+
+.success {
+	background: var(--bg-success-color);
+	color: var(--indicator-positive-color);
+}
+
+.error {
+	background: var(--bg-error-color);
+	color: var(--indicator-error-color);
+}
+
