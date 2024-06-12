@@ -3,9 +3,11 @@ import { create } from 'zustand';
 import type { Hall, PurchasedTickets, Seance } from '@/entities/Film';
 import type { User } from '@/entities/User';
 
+export type SeanceFromStore = Partial<Seance> & { timeWithHallName?: string };
+
 interface BuyFilmTicketState {
   filmId?: string;
-  seance?: Partial<Seance>;
+  seance?: SeanceFromStore;
   hall?: Hall;
   person?: Omit<Partial<User>, 'id' | 'email' | 'city'>;
   tickets?: PurchasedTickets[];
@@ -34,9 +36,12 @@ export const useBuyFilmTicketStore = create<BuyFilmTicketState & BuyFilmTicketAc
 
   // Actions
   setFilmId: (filmId) => set({ filmId }),
-  setSeanceDate: (seanceDate) => set(({ seance }) => ({ seance: { ...seance, date: seanceDate } })),
-  setSeanceTime: (seanceTime) => set(({ seance }) => ({ seance: { ...seance, time: seanceTime } })),
-  setHall: (hall) => set({ hall }),
+  setSeanceDate: (seanceDate) => set(() => ({ seance: { time: '', date: seanceDate } })),
+  setSeanceTime: (seanceTime) =>
+    set(({ seance }) => ({
+      seance: { ...seance, time: seanceTime.split(' ')[0], timeWithHallName: seanceTime }
+    })),
+  setHall: (newHall) => set(() => ({ hall: newHall, tickets: undefined })),
   setTickets: (tickets) => set({ tickets }),
   setPersonFirstName: (firstname) => set(({ person }) => ({ person: { ...person, firstname } })),
   setPersonLastName: (lastname) => set(({ person }) => ({ person: { ...person, lastname } })),

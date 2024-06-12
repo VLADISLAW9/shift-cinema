@@ -23,7 +23,7 @@ export interface Place {
 }
 
 export interface Hall {
-  name: 'Red' | 'Blue' | 'Violet';
+  name: 'Red' | 'Blue' | 'Purple';
   places: Place[][];
 }
 

@@ -4,18 +4,20 @@ import { RadioGroup } from '@ui/RadioGroup';
 import { VStack } from '@ui/Stack';
 import { Typography } from '@ui/Typography';
 
-import type { Hall, Seance } from '@/entities/Film';
+import type { Hall } from '@/entities/Film';
 import { useGetFilmScheduleByIdQuery } from '@/entities/Film';
+import type { SeanceFromStore } from '@/widgets/BuyFilmTicketSection/model/store/useBuyFilmTicketStore';
 
 import { getScheduleItems } from '../model/selectors/getScheduleItems';
 
 interface FilmScheduleSelectProps {
   className?: string;
   pageId: string;
-  seance?: Partial<Seance>;
+  seance?: SeanceFromStore;
   setHall: (value: Hall) => void;
   setSeanceDate: (value: string) => void;
   setSeanceTime: (value: string) => void;
+  hall?: Hall;
 }
 
 export const FilmScheduleSelect = memo((props: FilmScheduleSelectProps) => {
@@ -32,15 +34,18 @@ export const FilmScheduleSelect = memo((props: FilmScheduleSelectProps) => {
     (value: string) => {
       setSeanceTime(value);
 
+      const time = value.split(' ')[0];
+      const hallName = value.split(' ')[1];
+
       const selectedSchedule = data?.schedules?.find(
         (schedule) =>
           schedule.date === seance?.date &&
-          schedule.seances?.some((seanceItem) => seanceItem.time === value)
+          schedule.seances?.some((seanceItem) => seanceItem.time === time)
       );
 
       if (selectedSchedule && selectedSchedule.seances?.length > 0) {
         const selectedSeance = selectedSchedule.seances.find(
-          (seanceItem) => seanceItem.time === value
+          (seanceItem) => seanceItem.time === time && seanceItem.hall.name === hallName
         );
         if (selectedSeance) {
           setHall(selectedSeance.hall);
@@ -64,7 +69,7 @@ export const FilmScheduleSelect = memo((props: FilmScheduleSelectProps) => {
           <RadioGroup
             variant='tabs'
             label='Красный зал'
-            value={seance?.time}
+            value={seance?.timeWithHallName}
             onChange={onSelectSeanceTime}
             items={redHallItems}
           />
@@ -73,7 +78,7 @@ export const FilmScheduleSelect = memo((props: FilmScheduleSelectProps) => {
           <RadioGroup
             variant='tabs'
             label='Синий зал'
-            value={seance?.time}
+            value={seance?.timeWithHallName}
             onChange={onSelectSeanceTime}
             items={blueHallItems}
           />
@@ -82,7 +87,7 @@ export const FilmScheduleSelect = memo((props: FilmScheduleSelectProps) => {
           <RadioGroup
             variant='tabs'
             label='Фиолетовый зал'
-            value={seance?.time}
+            value={seance?.timeWithHallName}
             onChange={onSelectSeanceTime}
             items={violetHallItems}
           />

@@ -1,6 +1,6 @@
 import type { FilmScheduleResponseSchema } from '@/entities/Film/api/useGetFilmScheduleByIdQuery';
 import { convertDate } from '@/shared/lib/utils/convertDate';
-import type { RadioGroupItem } from '@/shared/ui/Selectors/RadioGroup';
+import type { RadioGroupItem } from '@/shared/ui/RadioGroup/RadioGroup';
 
 export const getScheduleItems = (data?: FilmScheduleResponseSchema, seanceDate?: string) => {
   const dateItems: RadioGroupItem<string>[] | undefined = data?.schedules.map((schedule) => ({
@@ -19,17 +19,17 @@ export const getScheduleItems = (data?: FilmScheduleResponseSchema, seanceDate?:
       selectedSchedule.seances.forEach((seance) => {
         if (seance.hall.name === 'Red') {
           redHallItems.push({
-            value: seance.time,
+            value: `${seance.time} Red`,
             content: seance.time
           });
         } else if (seance.hall.name === 'Blue') {
           blueHallItems.push({
-            value: seance.time,
+            value: `${seance.time} Blue`,
             content: seance.time
           });
-        } else if (seance.hall.name === 'Violet') {
+        } else if (seance.hall.name === 'Purple') {
           violetHallItems.push({
-            value: seance.time,
+            value: `${seance.time} Purple`,
             content: seance.time
           });
         }
