@@ -13,12 +13,14 @@ interface UserActions {
   clearUser: () => void;
 }
 
-export const useUserStore = create<UserState & UserActions>((set) => ({
-  // State
+const initialState: UserState = {
   user: undefined,
-  isLoggedIn: false,
+  isLoggedIn: false
+};
 
-  // Actions
+export const useUserStore = create<UserState & UserActions>((set) => ({
+  ...initialState,
+
   initUser: (user) => {
     set({ user });
     set({ isLoggedIn: true });
@@ -29,7 +31,6 @@ export const useUserStore = create<UserState & UserActions>((set) => ({
   },
 
   clearUser: () => {
-    set({ user: undefined });
-    set({ isLoggedIn: false });
+    set(initialState);
   }
 }));

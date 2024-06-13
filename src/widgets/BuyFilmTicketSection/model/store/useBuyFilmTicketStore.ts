@@ -26,16 +26,17 @@ interface BuyFilmTicketActions {
   onClearState: () => void;
 }
 
-export const useBuyFilmTicketStore = create<BuyFilmTicketState & BuyFilmTicketActions>((set) => ({
-  // State
+const initialState: BuyFilmTicketState = {
   filmId: undefined,
   tickets: undefined,
   seance: undefined,
-  debitCard: undefined,
   person: undefined,
-  hall: undefined,
+  hall: undefined
+};
 
-  // Actions
+export const useBuyFilmTicketStore = create<BuyFilmTicketState & BuyFilmTicketActions>((set) => ({
+  ...initialState,
+
   setFilmId: (filmId) => set({ filmId }),
   setSeanceDate: (seanceDate) => set(() => ({ seance: { time: '', date: seanceDate } })),
   setSeanceTime: (seanceTime) =>
@@ -48,13 +49,5 @@ export const useBuyFilmTicketStore = create<BuyFilmTicketState & BuyFilmTicketAc
   setPersonLastName: (lastname) => set(({ person }) => ({ person: { ...person, lastname } })),
   setPersonMiddleName: (middlename) => set(({ person }) => ({ person: { ...person, middlename } })),
   setPersonPhone: (phone) => set(({ person }) => ({ person: { ...person, phone } })),
-  onClearState: () =>
-    set(() => ({
-      hall: undefined,
-      filmId: undefined,
-      tickets: undefined,
-      seance: undefined,
-      person: undefined,
-      debitCard: undefined
-    }))
+  onClearState: () => set(initialState)
 }));
