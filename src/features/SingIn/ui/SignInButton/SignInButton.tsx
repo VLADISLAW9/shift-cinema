@@ -1,4 +1,3 @@
-import { memo } from 'react';
 import DoorIcon from '@icons/DoorIcon.svg';
 
 import { getRouteAuth } from '@/shared/consts/router';
@@ -13,7 +12,7 @@ interface SignInButtonProps {
   className?: string;
 }
 
-export const SignInButton = memo((props: SignInButtonProps) => {
+export const SignInButton = (props: SignInButtonProps) => {
   const { className } = props;
   return (
     <Link to={getRouteAuth()} className={classNames(cls.sign_in_button, {}, [className])}>
@@ -21,4 +20,4 @@ export const SignInButton = memo((props: SignInButtonProps) => {
       <Typography variant='typography16_medium'>Войти</Typography>
     </Link>
   );
-});
+};

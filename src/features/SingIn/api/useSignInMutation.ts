@@ -9,14 +9,15 @@ interface SignInResponseSchema extends Response {
   token: string;
 }
 
-interface SignInRequestBody {
+interface SignInDto {
   phone: string;
   code: number;
 }
 
 export const useSignInMutation = () =>
   useMutation({
-    mutationFn: ({ phone, code }: SignInRequestBody) => {
+    mutationKey: ['signIn'],
+    mutationFn: ({ phone, code }: SignInDto) => {
       return $api.post<SignInResponseSchema>('/users/signin', { phone, code });
     }
   });

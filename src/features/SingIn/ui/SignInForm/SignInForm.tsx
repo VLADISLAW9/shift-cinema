@@ -27,7 +27,6 @@ interface SignInFormProps {
 }
 
 export const SignInForm = memo((props: SignInFormProps) => {
-  // TODO: Вынести в useSignInForm
   const { className } = props;
   const navigate = useNavigate();
 

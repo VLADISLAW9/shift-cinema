@@ -3,6 +3,7 @@ import { memo } from 'react';
 import { VStack } from '@/shared/ui/Stack';
 
 import { useGetOrdersQuery } from '../../api/useGetOrdersQuery';
+import { OrderListItemSkeleton } from '../OrdersListItem/OrderListItemSkeleton';
 import { OrdersListItem } from '../OrdersListItem/OrdersListItem';
 
 interface OrdersListProps {
@@ -17,7 +18,12 @@ export const OrdersList = memo((props: OrdersListProps) => {
   if (ordersQuery.isLoading || !ordersQuery.data) {
     return (
       <VStack gap='24' className={className}>
-        Загрузка...
+        <OrderListItemSkeleton />
+        <OrderListItemSkeleton />
+        <OrderListItemSkeleton />
+        <OrderListItemSkeleton />
+        <OrderListItemSkeleton />
+        <OrderListItemSkeleton />
       </VStack>
     );
   }

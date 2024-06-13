@@ -1,5 +1,4 @@
 import { memo, useCallback } from 'react';
-import { classNames } from '@lib/classNames/classNames';
 import { RadioGroup } from '@ui/RadioGroup';
 import { VStack } from '@ui/Stack';
 import { Typography } from '@ui/Typography';
@@ -57,7 +56,7 @@ const FilmScheduleSelect = (props: FilmScheduleSelectProps) => {
   );
 
   return (
-    <VStack gap='24' className={classNames('', {}, [className])}>
+    <VStack gap='24' className={className}>
       <Typography variant='typography24_bold'>Расписание</Typography>
       <VStack gap='32'>
         <RadioGroup

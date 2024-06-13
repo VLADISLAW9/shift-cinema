@@ -1,13 +1,8 @@
+import type { User } from '@/entities/User';
+
 export interface SignInResponse {
   success: boolean;
   reason: string;
-  user: {
-    phone: string;
-    firstname: string;
-    middlename: string;
-    lastname: string;
-    email: string;
-    city: string;
-  };
+  user: Omit<User, 'id'>;
   token: string;
 }

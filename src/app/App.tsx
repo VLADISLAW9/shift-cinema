@@ -5,11 +5,10 @@ import { USER_LOCALSTORAGE_KEY } from '@/shared/consts/localstorage';
 import { AppLoaderLayout, DesktopLayouts } from '@/shared/layouts';
 import { Navbar } from '@/widgets/Navbar';
 
-import AppRouter from './providers/RouterProvider/ui/AppRouter';
+import { AppRouter } from './providers/RouterProvider';
 
 export const App = () => {
   const initUser = useUserStore((state) => state.initUser);
-
   const initAuthDataQuery = useInitAuthDataQuery();
 
   const userToken = localStorage.getItem(USER_LOCALSTORAGE_KEY);

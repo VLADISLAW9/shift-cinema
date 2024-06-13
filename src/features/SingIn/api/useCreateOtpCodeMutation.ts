@@ -7,12 +7,14 @@ interface CreateOtpCodeResponseSchema extends Response {
   retryDelay: number;
 }
 
-interface CreateOtpCodeRequestBody {
+interface CreateOtpCodeDto {
   phone: string;
 }
 
 export const useCreateOtpCodeMutation = () =>
   useMutation({
-    mutationFn: ({ phone }: CreateOtpCodeRequestBody) =>
-      $api.post<CreateOtpCodeResponseSchema>('/auth/otp', { phone })
+    mutationKey: ['createOtpCode'],
+    mutationFn: ({ phone }: CreateOtpCodeDto) => {
+      return $api.post<CreateOtpCodeResponseSchema>('/auth/otp', { phone });
+    }
   });
