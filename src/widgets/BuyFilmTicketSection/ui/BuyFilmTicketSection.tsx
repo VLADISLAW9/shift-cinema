@@ -1,5 +1,4 @@
 import { memo, Suspense, useState } from 'react';
-import { classNames } from '@lib/classNames/classNames';
 import { convertDate } from '@lib/utils/convertDate';
 import { formatPlacesToString } from '@lib/utils/formatPlacesToString';
 import { Button } from '@ui/Button/Button';

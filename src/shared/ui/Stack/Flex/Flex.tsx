@@ -1,4 +1,4 @@
-import type { DetailedHTMLProps, HTMLAttributes, ReactNode, Ref } from 'react';
+import type { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
 import { forwardRef } from 'react';
 import type { Mods } from '@lib/classNames';
 import { classNames } from '@lib/classNames';

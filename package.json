@@ -12,8 +12,8 @@
     "prettier": "npx prettier --write **/*.{ts,tsx,json,cjs}",
     "preview": "vite preview",
     "prepare": "husky",
-    "storybook": "start-storybook -p 6006 -c ./configs/storybook",
-    "storybook:build": "build-storybook -c ./configs/storybook"
+    "storybook": "storybook dev -p 6006 -c ./configs/storybook",
+    "storybook:build": "storybook build"
   },
   "lint-staged": {
     "*.scss": [
@@ -41,14 +41,15 @@
     "zustand": "^4.5.2"
   },
   "devDependencies": {
-    "@chromatic-com/storybook": "^1.4.0",
     "@feature-sliced/eslint-config": "^0.1.1",
+    "@newhighsco/storybook-addon-svgr": "^2.0.19",
     "@storybook/addon-essentials": "^8.1.1",
     "@storybook/addon-interactions": "^8.1.1",
     "@storybook/addon-links": "^8.1.1",
     "@storybook/addon-onboarding": "^8.1.1",
     "@storybook/blocks": "^8.1.1",
-    "@storybook/react": "^8.1.1",
+    "@storybook/builder-vite": "^8.1.8",
+    "@storybook/react": "^8.1.8",
     "@storybook/react-vite": "^8.1.1",
     "@storybook/test": "^8.1.1",
     "@tanstack/eslint-plugin-query": "^5.35.6",
@@ -69,10 +70,9 @@
     "eslint-plugin-react-refresh": "^0.4.6",
     "eslint-plugin-storybook": "^0.8.0",
     "husky": "^9.0.11",
-    "lint-staged": "^15.2.2",
+    "lint-staged": "^15.2.7",
     "prettier": "^3.2.5",
     "sass": "^1.77.2",
-    "storybook": "^8.1.1",
     "typescript": "^5.2.2",
     "vite": "^5.2.0",
     "vite-plugin-svgr": "^4.2.0"

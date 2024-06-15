@@ -10,7 +10,7 @@ export const useNavbarItems = () => {
   if (isLoggedIn) {
     navbarItemsList.push(
       {
-        path: getRouteProfile(':id'),
+        path: getRouteProfile(),
         text: 'Профиль',
         authOnly: true
       },

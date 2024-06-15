@@ -15,7 +15,6 @@ interface AppLogoProps {
 
 export const AppLogo = memo((props: AppLogoProps) => {
   const { className, clickable } = props;
-
   if (clickable) {
     return (
       <Link to={getRouteFilms()} className={classNames(cls.AppLogo, {}, [className])}>
