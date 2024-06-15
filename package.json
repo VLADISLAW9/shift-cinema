@@ -13,7 +13,8 @@
     "preview": "vite preview",
     "prepare": "husky",
     "storybook": "storybook dev -p 6006 -c ./configs/storybook",
-    "storybook:build": "storybook build"
+    "storybook:build": "storybook build",
+    "test:unit": "jest --config ./configs/jest/jest.config.ts"
   },
   "lint-staged": {
     "*.scss": [
@@ -41,6 +42,12 @@
     "zustand": "^4.5.2"
   },
   "devDependencies": {
+    "@babel/core": "^7.24.7",
+    "@babel/plugin-transform-runtime": "^7.24.7",
+    "@babel/plugin-transform-typescript": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
+    "@babel/preset-react": "^7.24.7",
+    "@babel/preset-typescript": "^7.24.7",
     "@feature-sliced/eslint-config": "^0.1.1",
     "@newhighsco/storybook-addon-svgr": "^2.0.19",
     "@storybook/addon-essentials": "^8.1.1",
@@ -53,9 +60,13 @@
     "@storybook/react-vite": "^8.1.1",
     "@storybook/test": "^8.1.1",
     "@tanstack/eslint-plugin-query": "^5.35.6",
+    "@testing-library/dom": "^10.1.0",
+    "@testing-library/jest-dom": "^6.4.6",
+    "@testing-library/react": "^16.0.0",
+    "@types/jest": "^29.5.12",
     "@types/node": "^20.12.12",
-    "@types/react": "^18.2.66",
-    "@types/react-dom": "^18.2.22",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
     "@types/react-router-dom": "^5.3.3",
     "@typescript-eslint/eslint-plugin": "^7.2.0",
     "@typescript-eslint/parser": "^7.2.0",
@@ -70,9 +81,14 @@
     "eslint-plugin-react-refresh": "^0.4.6",
     "eslint-plugin-storybook": "^0.8.0",
     "husky": "^9.0.11",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jest-html-reporters": "^3.1.7",
     "lint-staged": "^15.2.7",
     "prettier": "^3.2.5",
     "sass": "^1.77.2",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
     "typescript": "^5.2.2",
     "vite": "^5.2.0",
     "vite-plugin-svgr": "^4.2.0"

@@ -30,8 +30,13 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
-    
   },
-  "include": ["**/*.ts", "**/*.tsx"],
+  "include": [
+    "./src/**/*.tsx", 
+    "./src/**/*.ts", 
+    "./configs/jest/jest.config.ts", 
+    "./babel.config.json", 
+    "./.eslintrc.cjs"
+  ],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

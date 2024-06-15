@@ -1,6 +1,6 @@
 import SuccessIcon from '@images/Success.svg';
 import { classNames } from '@lib/classNames/classNames';
-import { convertDate } from '@lib/utils/convertDate';
+import { convertDate } from '@lib/utils/convertDate/';
 import { formatPlacesToString } from '@lib/utils/formatPlacesToString';
 import { Icon } from '@ui/Icon';
 import { Link } from '@ui/Link';

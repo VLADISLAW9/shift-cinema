@@ -6,7 +6,7 @@ module.exports = {
     ...eslint.react.overrides,
     {
       extends: ['plugin:storybook/recommended', 'plugin:@tanstack/eslint-plugin-query/recommended'],
-      files: ['*.ts', '*.tsx'],
+      files: ['**/src/**/*.{test,stories}.{ts,tsx}'],
       settings: {
         atomPostfix: ''
       },
