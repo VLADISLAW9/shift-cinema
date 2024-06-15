@@ -1,0 +1,1 @@
+import{r as s,j as a,V as t,T as r,S as o}from"./index-DDvn9Y29.js";const e=()=>a.jsxs(t,{gap:"32",children:[a.jsx(r,{tag:"h2",variant:"typography24_bold",children:"Авторизация"}),a.jsx(o,{})]}),n=s.memo(e);export{n as default};
