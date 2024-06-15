@@ -1,1 +1,0 @@
-import{r as a,j as s,V as t,T as r}from"./index-DDvn9Y29.js";import{F as o}from"./FilmsList-BRf3PW5p.js";import"./FilmImage-DDVeXnI1.js";const i=()=>s.jsxs(t,{gap:"32",children:[s.jsx(r,{tag:"h1",variant:"typography32_bold",children:"Афиша"}),s.jsx(o,{})]}),l=a.memo(i);export{l as default};
