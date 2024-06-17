@@ -1,7 +1,8 @@
 import userEvent from '@testing-library/user-event';
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import FilmScheduleSelect from './FilmScheduleSelect';
 import { useGetFilmScheduleByIdQuery } from '@/entities/Film';
+import { componentRender } from '@/shared/lib/tests'
 
 jest.mock('@/entities/Film');
 
@@ -30,7 +31,7 @@ describe('FilmScheduleSelect', () => {
   });
 
   test('отображаем страницу и не видим выбор времени', () => {
-    render(
+    componentRender(
       <FilmScheduleSelect
         setHall={() => {}}
         setSeanceDate={() => {}}
@@ -45,7 +46,7 @@ describe('FilmScheduleSelect', () => {
   });
 
   test('выбор даты и отображение red_hall_time_select', async () => {
-    render(
+    componentRender(
       <FilmScheduleSelect
         setHall={() => {}}
         setSeanceDate={() => {}}

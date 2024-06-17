@@ -1,7 +1,8 @@
-import { render, screen } from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import { useCinemaTodayQuery } from '../../api/useCinemaTodayQuery'; 
 import { FilmsList } from './FilmsList';
 import { Film } from '../../model/types/film'
+import { componentRender } from '@/shared/lib/tests'
 
 jest.mock('../../api/useCinemaTodayQuery');
 
@@ -64,7 +65,7 @@ describe('FilmsList', () => {
       data: null,
     });
 
-    render(<FilmsList />);
+    componentRender(<FilmsList />);
 
     expect(screen.getByTestId('loading')).toBeInTheDocument();
   });
@@ -78,7 +79,7 @@ describe('FilmsList', () => {
       },
     });
 
-    render(<FilmsList />);
+    componentRender(<FilmsList />);
 
     expect(screen.getByText('Film 1')).toBeInTheDocument();
     expect(screen.getByText('Film 2')).toBeInTheDocument();

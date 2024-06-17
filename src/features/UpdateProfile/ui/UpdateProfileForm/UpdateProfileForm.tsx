@@ -61,6 +61,7 @@ export const UpdateProfileForm = memo((props: UpdateProfileFormProps) => {
         render={({ field, fieldState }) => (
           <Input
             {...field}
+            data-testid="firstname_input"
             label='Имя'
             required
             {...(fieldState.error && { error: fieldState.error.message })}
@@ -73,6 +74,7 @@ export const UpdateProfileForm = memo((props: UpdateProfileFormProps) => {
         render={({ field, fieldState }) => (
           <Input
             {...field}
+            data-testid="lastname_input"
             label='Фамилия'
             required
             {...(fieldState.error && { error: fieldState.error.message })}
@@ -85,6 +87,7 @@ export const UpdateProfileForm = memo((props: UpdateProfileFormProps) => {
         render={({ field, fieldState }) => (
           <Input
             {...field}
+            data-testid="middlename_input"
             label='Отчество'
             {...(fieldState.error && { error: fieldState.error.message })}
           />
@@ -97,6 +100,7 @@ export const UpdateProfileForm = memo((props: UpdateProfileFormProps) => {
         render={({ field, fieldState }) => (
           <Input
             {...field}
+            data-testid="phone_input"
             label='Номер'
             disabled
             {...(fieldState.error && { error: fieldState.error.message })}
@@ -109,12 +113,14 @@ export const UpdateProfileForm = memo((props: UpdateProfileFormProps) => {
         render={({ field, fieldState }) => (
           <Input
             {...field}
+            data-testid="email_input"
             label='Email'
             {...(fieldState.error && { error: fieldState.error.message })}
           />
         )}
       />
       <Button
+        data-testid="update_profile_button"
         disabled={updateProfileMutation.isPending}
         type='submit'
         className={cls.update_button}
