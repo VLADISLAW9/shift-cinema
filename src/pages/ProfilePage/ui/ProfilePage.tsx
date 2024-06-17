@@ -6,7 +6,7 @@ import { Typography } from '@/shared/ui/Typography';
 
 const ProfilePage = () => {
   return (
-    <VStack gap='32'>
+    <VStack date-testid='ProfilePage' gap='32'>
       <Typography tag='h1' variant='typography32_bold'>
         Профиль
       </Typography>

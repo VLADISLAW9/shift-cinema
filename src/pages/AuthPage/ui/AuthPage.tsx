@@ -5,7 +5,7 @@ import { Typography } from '@ui/Typography';
 import { SignInForm } from '@/features/SingIn/ui/SignInForm/SignInForm';
 
 const AuthPage = () => (
-  <VStack gap='32'>
+  <VStack data-testid='AuthPage' gap='32'>
     <Typography tag='h2' variant='typography24_bold'>
       Авторизация
     </Typography>

@@ -10,7 +10,11 @@ const FilmDetailsPage = () => {
     return null;
   }
 
-  return <FilmDetails pageId={id} />;
+  return (
+    <div data-testid='FilmDetailsPage'>
+      <FilmDetails pageId={id} />;
+    </div> 
+  ) 
 };
 
 export default memo(FilmDetailsPage);

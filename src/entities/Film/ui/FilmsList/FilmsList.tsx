@@ -32,7 +32,7 @@ export const FilmsList = memo((props: FilmsListProps) => {
   }
 
   return (
-    <Grid columns={4} gap={50} className={className}>
+    <Grid data-testid='film_list' columns={4} gap={50} className={className}>
       {films.map((film) => (
         <FilmListItem key={film.id} film={film} />
       ))}

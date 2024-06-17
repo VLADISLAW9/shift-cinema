@@ -4,7 +4,7 @@ import cls from './NotFoundPage.module.scss';
 
 export const NotFoundPage = () => {
   return (
-    <div className={cls.not_found_page}>
+    <div data-testid='NotFoundPage' className={cls.not_found_page}>
       <Typography variant='typography32_bold'>Страница не найдена</Typography>
     </div>
   );

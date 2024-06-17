@@ -22,7 +22,7 @@ export const FilmListItem = memo((props: FilmListItemProps) => {
   const { className, film } = props;
 
   return (
-    <VStack gap='16' className={classNames(cls.FilmListItem, {}, [className])}>
+    <VStack data-testid='film_list_item' gap='16' className={classNames(cls.FilmListItem, {}, [className])}>
       <FilmImage film={film} />
       <VStack gap='4'>
         <Typography tag='h3' variant='typography20_semibold'>

@@ -14,7 +14,8 @@
     "prepare": "husky",
     "storybook": "storybook dev -p 6006 -c ./configs/storybook",
     "storybook:build": "storybook build",
-    "test:unit": "jest --config ./configs/jest/jest.config.ts"
+    "test:unit": "jest --config ./configs/jest/jest.config.ts",
+    "test:e2e": "cypress open"
   },
   "lint-staged": {
     "*.scss": [
@@ -78,6 +79,8 @@
     "@vladislaw9/stylelint": "^1.0.0",
     "babel-jest": "^29.7.0",
     "babel-plugin-transform-vite-meta-env": "^1.0.3",
+    "cypress": "^13.11.0",
+    "cypress-vite": "^1.5.0",
     "eslint": "^8.57.0",
     "eslint-plugin-boundaries": "^4.2.1",
     "eslint-plugin-import": "^2.29.1",
