@@ -11,7 +11,7 @@ export interface PurchasedTickets {
 }
 
 export interface Place {
-  price: 0;
+  price: number;
   type: 'ECONOM' | 'BLOCKED' | 'COMFORT';
 }
 

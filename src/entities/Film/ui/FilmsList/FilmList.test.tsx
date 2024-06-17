@@ -1,7 +1,6 @@
-import { screen } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { useCinemaTodayQuery } from '../../api/useCinemaTodayQuery'; 
 import { FilmsList } from './FilmsList';
-import { componentRender } from '@/shared/lib/tests/componentRender/componentRender'
 import { Film } from '../../model/types/film'
 
 jest.mock('../../api/useCinemaTodayQuery');
@@ -58,19 +57,19 @@ const films: Film[] = [
 ]
 
 describe('FilmsList', () => {
-  test('renders loading state', () => {
+  test('загрузка', () => {
     
     (useCinemaTodayQuery as jest.Mock).mockReturnValue({
       isLoading: true,
       data: null,
     });
 
-    componentRender(<FilmsList />);
+    render(<FilmsList />);
 
     expect(screen.getByTestId('loading')).toBeInTheDocument();
   });
 
-  test('renders film list', () => {
+  test('рендер списка фильмов', () => {
     
     (useCinemaTodayQuery as jest.Mock).mockReturnValue({
       isLoading: false,
@@ -79,7 +78,7 @@ describe('FilmsList', () => {
       },
     });
 
-    componentRender(<FilmsList />);
+    render(<FilmsList />);
 
     expect(screen.getByText('Film 1')).toBeInTheDocument();
     expect(screen.getByText('Film 2')).toBeInTheDocument();

@@ -60,7 +60,7 @@ const FilmScheduleSelect = (props: FilmScheduleSelectProps) => {
       <Typography variant='typography24_bold'>Расписание</Typography>
       <VStack gap='32'>
         <RadioGroup
-          data-id='date_select'
+          data-testid='date_select'
           variant='segmented'
           value={seance?.date}
           onChange={setSeanceDate}
@@ -68,7 +68,7 @@ const FilmScheduleSelect = (props: FilmScheduleSelectProps) => {
         />
         {redHallItems.length > 0 && (
           <RadioGroup
-            data-id='red_hall_time_select'
+            data-testid='red_hall_time_select'
             variant='tabs'
             label='Красный зал'
             value={seance?.timeWithHallName}
