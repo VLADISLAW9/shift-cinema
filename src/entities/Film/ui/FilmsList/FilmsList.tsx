@@ -18,7 +18,7 @@ export const FilmsList = memo((props: FilmsListProps) => {
 
   if (cinemaTodayQuery.isLoading || !films) {
     return (
-      <Grid columns={4} gap={50} className={className}>
+      <Grid data-testid='loading' columns={4} gap={50} className={className}>
         <FilmListItemSkeleton />
         <FilmListItemSkeleton />
         <FilmListItemSkeleton />

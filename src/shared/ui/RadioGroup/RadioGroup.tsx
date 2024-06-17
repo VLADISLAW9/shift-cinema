@@ -26,10 +26,12 @@ interface RadioGroupProps<T extends string> extends HRadioGroupProps {
   readonly?: boolean;
   variant?: RadioGroupVariant;
   label?: string;
+  'data-id'?: string;
 }
 
 export const RadioGroup = <T extends string>(props: RadioGroupProps<T>) => {
-  const { className, value, onChange, variant = 'segmented', items, label, ...otherProps } = props;
+  const { className, value, onChange, variant = 'segmented', items, label, 'data-id': dataId, ...otherProps } = props;
+
 
   return (
     <VStack gap='16'>
@@ -39,6 +41,7 @@ export const RadioGroup = <T extends string>(props: RadioGroupProps<T>) => {
         </Typography>
       )}
       <HRadioGroup
+        data-id={dataId}
         className={classNames(cls.radio_group, {}, [className, cls[variant]])}
         value={value}
         onChange={onChange}
@@ -47,6 +50,7 @@ export const RadioGroup = <T extends string>(props: RadioGroupProps<T>) => {
       >
         {items?.map((item, index) => (
           <Radio
+            data-id={{dataId} + '_item_' + {index}}
             key={item.value}
             disabled={item.disabled}
             className={classNames(cls.radio_group_item_wrapper, {}, [className, cls[variant]])}

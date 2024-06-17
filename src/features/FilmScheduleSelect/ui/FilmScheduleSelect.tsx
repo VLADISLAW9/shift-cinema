@@ -60,6 +60,7 @@ const FilmScheduleSelect = (props: FilmScheduleSelectProps) => {
       <Typography variant='typography24_bold'>Расписание</Typography>
       <VStack gap='32'>
         <RadioGroup
+          data-id='date_select'
           variant='segmented'
           value={seance?.date}
           onChange={setSeanceDate}
@@ -67,6 +68,7 @@ const FilmScheduleSelect = (props: FilmScheduleSelectProps) => {
         />
         {redHallItems.length > 0 && (
           <RadioGroup
+            data-id='red_hall_time_select'
             variant='tabs'
             label='Красный зал'
             value={seance?.timeWithHallName}
@@ -74,8 +76,9 @@ const FilmScheduleSelect = (props: FilmScheduleSelectProps) => {
             items={redHallItems}
           />
         )}
-        {redHallItems.length > 0 && (
+        {blueHallItems.length > 0 && (
           <RadioGroup
+            data-id='blue_hall_time_select'
             variant='tabs'
             label='Синий зал'
             value={seance?.timeWithHallName}
@@ -85,6 +88,7 @@ const FilmScheduleSelect = (props: FilmScheduleSelectProps) => {
         )}
         {violetHallItems.length > 0 && (
           <RadioGroup
+            data-id='violet_hall_time_select'
             variant='tabs'
             label='Фиолетовый зал'
             value={seance?.timeWithHallName}

@@ -1,9 +1,10 @@
 {
   "compilerOptions": {
-    "target": "ES2020",
+    "types": ["node", "jest", "@testing-library/jest-dom"],
+    "target": "esnext",
+    "module": "esnext",
     "useDefineForClassFields": true,
-    "lib": ["ES2020", "DOM", "DOM.Iterable"],
-    "module": "ESNext",
+    "lib": ["ES2020", "DOM", "DOM.Iterable", "esnext"],
     "skipLibCheck": true,
     "baseUrl": ".",
 
@@ -18,7 +19,7 @@
     },
 
     /* Bundler mode */
-    "moduleResolution": "bundler",
+    "moduleResolution": "Bundler",
     "allowImportingTsExtensions": true,
     "resolveJsonModule": true,
     "isolatedModules": true,
@@ -38,5 +39,6 @@
     "./babel.config.json", 
     "./.eslintrc.cjs"
   ],
+  "exclude": ["node_modules"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }
