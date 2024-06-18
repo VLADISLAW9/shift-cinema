@@ -16,6 +16,7 @@ describe('Роутинг', () => {
 			cy.getByTestId('ProfilePage').should('exist')
 		});
 		it('Переходит на страницу билетов', () => {
+			cy.onGetOrders();
 			cy.visit('/orders')
 			cy.getByTestId('OrdersPage').should('exist')
 		});
